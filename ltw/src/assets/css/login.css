@@ -1,0 +1,12 @@
+.login-modal {
+  background-color: coral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-modal-content {
+  height: 480px;
+  width: 400px;
+  background-color: cornsilk;
+  border-radius: 5px;
+}
