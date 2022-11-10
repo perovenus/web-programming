@@ -5,40 +5,7 @@ import "./home.css";
 function Home() {
   return (
     <div className="home">
-      <div className="home-header">
-        <ul>
-          <li>
-            <a href="#">
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>About</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>News</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Product</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Contact</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>Signin</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <header><Header /></header>
       <div className="home-container">
         <div className="home-container-image">
           <img src={background1} alt="background" />
