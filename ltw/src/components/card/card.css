@@ -8,3 +8,13 @@
   border: none;
   border-radius: 0;
 }
+@media screen and (min-width: 768px) {
+  .card p {
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .card p {
+    font-size: 50px;
+  }
+}

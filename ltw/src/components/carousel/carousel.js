@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Card from "./card";
-import "../assets/css/carousel.css";
+import Card from "../card/card";
+import "./carousel.css";
+
 function Carousel({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const length = images.length;
@@ -30,10 +31,10 @@ function Carousel({ images }) {
               }
             >
               <div class="cards-wraper">
-                {index === currentSlide && <Card image={image} />}
-                {index === currentSlide && <Card image={image} />}
-                {index === currentSlide && <Card image={image} />}
-                {index === currentSlide && <Card image={image} />}
+                <Card image={image} />
+                <Card image={image} />
+                <Card image={image} />
+                <Card image={image} />
               </div>
             </div>
           );

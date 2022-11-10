@@ -18,3 +18,16 @@
   height: 40px !important;
   border-radius: 50%;
 }
+@media screen and (min-width: 768px) {
+  /* cut child in card wrapper */
+  .cards-wraper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+}
+@media screen and (min-width: 900px) {
+  .cards-wraper {
+    padding: 0 100px;
+  }
+}
