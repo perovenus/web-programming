@@ -7,9 +7,9 @@ export default function Header() {
   var loginStat = true;
 
   return (
-    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="navbar-brand">Tên gì đó</a>
+        <a class="navbar-brand" href="#">Tên gì đó</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@ export default function Header() {
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3" id="navbar-nav">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#">Về chúng tôi</a>
               </li>

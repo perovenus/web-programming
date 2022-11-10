@@ -1,14 +1,15 @@
 @media screen and (min-width: 992px) {
-    .navbar {
+    .fixed-top {
         padding: 0;
     }
 
-    .navbar .navbar-nav a {
+    .fixed-top .navbar-nav a {
         position: relative;
         padding: 1em;
+        margin: 0 20px;
     }
 
-    .navbar .navbar-nav a:after {
+    .fixed-top .navbar-nav a:after {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -21,7 +22,7 @@
         transition: all .5s;
     }
 
-    .navbar .navbar-nav a:hover::after {
+    .fixed-top .navbar-nav a:hover::after {
         width: 100%;
     }
 
@@ -41,24 +42,25 @@
     }
 }
 
-.navbar {
+.fixed-top {
     background-color: #ffffff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
-.navbar .navbar-brand {
+.fixed-top .navbar-brand {
     color: #176FC0;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 24px;
     padding-left: 20px;
 }
 
-.navbar .nav-item a {
+.fixed-top .nav-item a {
     color: black;
+    font-weight: 500;
 }
 
-.navbar .nav-item a:hover {
-    font-weight: 500;
+.fixed-top .nav-item a:hover {
+    font-weight: 600;
     color: #176FC0;
 }
 
