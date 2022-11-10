@@ -1,70 +1,44 @@
-import { useState } from "react";
-import Card from "../card/card";
+import bg from "../../assets/images/background.jpg";
 import "./carousel.css";
-
-function Carousel({ images }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const length = images.length;
-  const nextSlide = () => {
-    setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
-  };
-  const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
-  };
-  if (!Array.isArray(images) || images.length <= 0) {
-    return null;
+import Card from "../card/card";
+function Carousel(props) {
+  function scrollwheel(e) {
+    var scrollmenu = document.getElementById("scroll-menu");
+    scrollmenu.scrollLeft += e.deltaY < 0 ? -100 : 100;
   }
   return (
     <div
-      id="carouselExampleControls"
-      class="carousel slide"
-      data-ride="carousel"
+      class="container-fluid"
+      style={{
+        padding: "0 40px",
+        height: "500px",
+      }}
     >
-      <div class="carousel-inner">
-        {images.map((image, index) => {
+      <div class="col-12">
+        <h1>
+          <span>Sản phẩm bán chạy</span>
+        </h1>
+      </div>
+      <div
+        class="scrollmenu col"
+        onWheel={scrollwheel}
+        id="scroll-menu"
+        style={{ borderRadius: "10px" }}
+      >
+        {props.images.map((image, index) => {
           return (
-            <div
-              class={
-                index === currentSlide
-                  ? "carousel-item active"
-                  : "carousel-item"
-              }
-            >
-              <div class="cards-wraper">
-                <Card image={image} />
-                <Card image={image} />
-                <Card image={image} />
-                <Card image={image} />
-              </div>
-            </div>
+            <Card
+              props={{
+                image: image,
+                key: index,
+              }}
+              key={index}
+            />
           );
         })}
       </div>
-      <a
-        class="carousel-control-prev"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="prev"
-      >
-        <span
-          class="carousel-control-prev-icon"
-          aria-hidden="true"
-          onClick={prevSlide}
-        ></span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="next"
-      >
-        <span
-          class="carousel-control-next-icon"
-          aria-hidden="true"
-          onClick={nextSlide}
-        ></span>
-      </a>
     </div>
   );
 }
+
 export default Carousel;

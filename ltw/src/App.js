@@ -11,7 +11,7 @@ function App() {
     background,
     background,
   ];
-  return <Category images={images} />;
+  return <Category/>;
 }
 
 export default App;

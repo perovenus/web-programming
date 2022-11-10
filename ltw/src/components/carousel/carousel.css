@@ -1,33 +1,27 @@
-.cards-wraper {
-  display: flex;
-  justify-content: center;
-  padding: 0 30px;
+div.scrollmenu {
+  overflow-x: auto;
+  white-space: nowrap;
+  border: 3px solid #ccc;
 }
-.carousel-control-prev {
-  justify-content: start !important;
-  padding-left: 20px !important;
+
+div.scrollmenu .card {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }
-.carousel-control-next {
-  justify-content: end !important;
-  padding-right: 20px !important;
+
+div.scrollmenu a:hover {
+  background-color: #777;
 }
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  background-color: #e1e1e1;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50%;
+::-webkit-scrollbar {
+  height: 10px;
+  display: None;
 }
-@media screen and (min-width: 768px) {
-  /* cut child in card wrapper */
-  .cards-wraper {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
 }
-@media screen and (min-width: 900px) {
-  .cards-wraper {
-    padding: 0 100px;
-  }
+::-webkit-scrollbar-track {
+  background-color: #fff;
 }

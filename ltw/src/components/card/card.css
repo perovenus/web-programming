@@ -3,10 +3,10 @@
   max-height: 100%;
 }
 .card {
-  margin: 0 0.5em;
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  margin: 0.5rem 0.5em;
   border: none;
   border-radius: 0;
+  color: black;
 }
 @media screen and (min-width: 768px) {
   .card p {
