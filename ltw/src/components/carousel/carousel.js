@@ -8,7 +8,7 @@ function Carousel(props) {
   }
   return (
     <div
-      class="container-fluid"
+      id="container-fluid"
       style={{
         padding: "0 40px",
         height: "500px",
