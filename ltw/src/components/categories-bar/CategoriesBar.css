@@ -1,8 +1,4 @@
 @media screen and (min-width: 992px) {
-    .categories-bar {
-        padding: 0;
-    }
-
     .categories-bar .navbar-nav a {
         position: relative;
         padding: 10px;
@@ -31,8 +27,15 @@
 .categories-bar {
     background-color: #ffffff;
     padding: 0;
+    position: fixed;
+    top: 0;
+    z-index: 5;
 }
-
+/* @media screen and (min-width: 992px) {
+    .categories-bar {
+        top: 80px;
+    }
+} */
 .categories-bar .form-control {
     background-color: #F5F5FA;
     font-size: 12px;

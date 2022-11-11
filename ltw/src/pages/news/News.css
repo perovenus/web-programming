@@ -1,11 +1,20 @@
 .body {
-    padding: 90px 15px 0 15px;
+    padding: 80px 10px 0 10px; 
     background-color: #F5F5FA;
-    height: 1200px;
 }
 
-@media screen and (max-width: 992px) {
+/* .container {
+    padding: 200px;
+} */
+
+/* @media screen and (max-width: 992px) {
     .body {
-        padding: 70px 10px 0 10px;
+        padding: 0 10px;
     }
+} */
+
+.news-list {
+    height: 450px;
+    padding-top: 10px;
+    overflow: scroll;
 }

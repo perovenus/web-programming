@@ -3,10 +3,8 @@
   max-height: 100%;
 }
 .card {
-  margin: 0.5rem 0.5em;
   border: none;
   border-radius: 0;
-  color: black;
 }
 @media screen and (min-width: 768px) {
   .card p {
@@ -15,6 +13,6 @@
 }
 @media screen and (min-width: 900px) {
   .card p {
-    font-size: 50px;
+    font-size: 16px;
   }
 }
