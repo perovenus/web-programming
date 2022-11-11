@@ -31,11 +31,7 @@
     top: 0;
     z-index: 5;
 }
-/* @media screen and (min-width: 992px) {
-    .categories-bar {
-        top: 80px;
-    }
-} */
+
 .categories-bar .form-control {
     background-color: #F5F5FA;
     font-size: 12px;
