@@ -32,6 +32,9 @@ export default function Header() {
               <li class="nav-item">
                 <a class="nav-link" href="#">Liên hệ</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
