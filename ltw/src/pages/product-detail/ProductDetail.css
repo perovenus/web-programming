@@ -1,0 +1,147 @@
+.product-summary,
+.delivery-policy,
+.product-description,
+.product-spec {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.product-description,
+.product-spec {
+    padding: 15px 20px;
+}
+
+.product-description {
+    border-radius: 0 0 5px 5px;
+}
+
+.product-spec {
+    border-radius: 5px 5px 0 0;
+}
+
+@media screen and (min-width: 992px) {
+    .product-description {
+        border-radius: 5px 0 0 5px;
+    }
+
+    .product-spec {
+        border-radius: 0 5px 5px 0;
+        height: 100%;
+    }
+}
+
+.product-summary .product-img {
+    padding: 10px;
+    width: 100%;
+    size: cover;
+}
+
+.product-summary p,
+.product-summary span {
+    font-size: 15x;
+}
+
+.product-summary p {
+    color: #767676;
+}
+
+.product-summary h3,
+.product-summary span {
+    color: #0060B9;
+}
+
+.product-summary span {
+    margin-left: 5px;
+}
+
+.product-summary ul {
+    margin-top: 30px;
+    padding: 0;
+    list-style: inside;
+}
+
+.product-summary ul li {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.product-summary hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px dashed black;
+}
+
+.product-summary button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 500px) {
+    .product-summary button {
+        font-size: 16px;
+    }
+}
+
+.delivery-policy {
+    padding: 10px 12px;
+}
+
+.delivery-policy div {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.delivery-policy strong {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.delivery-policy span {
+    color: #036aca;
+}
+
+.delivery-policy p {
+    font-size: 13px;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.product-description img {
+    width: 100%;
+    size: cover;
+}
+
+.product-description h5,
+.product-description strong,
+.product-spec h5,
+.product-spec p  {
+    font-weight: 600;
+}
+
+.product-description p {
+    margin-top: 10px;
+}
+
+.product-spec tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-spec tr td {
+    padding: 10px;
+    font-size: 13px;
+}
+
+.product-spec tr td:first-child {
+    width: 40%;
+}
+
+.product-spec p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: #455b7d;
+    width: 200%;
+}
+
