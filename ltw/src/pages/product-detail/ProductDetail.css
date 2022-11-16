@@ -1,13 +1,15 @@
 .product-summary,
 .delivery-policy,
 .product-description,
-.product-spec {
+.product-spec,
+.comments {
     background-color: #ffffff;
     border-radius: 5px;
 }
 
 .product-description,
-.product-spec {
+.product-spec,
+.comments {
     padding: 15px 20px;
 }
 
@@ -145,3 +147,35 @@
     width: 200%;
 }
 
+.comments hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1.5px solid #767676;
+}
+
+.comments .mt-3 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comments .mt-3 button {
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.comments .mt-3 button:first-child {
+    margin-right: 15px;
+}
+
+.comments .reply-btn {
+    margin: 5px 0 10px 0;
+    font-size: 14px;
+    color: #3A91E2;
+    width: 60px;
+}
+
+.comments .reply-btn:hover {
+    text-decoration: underline;
+}

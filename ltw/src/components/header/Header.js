@@ -49,10 +49,12 @@ export default function Header() {
                 <div class="nav-link">
                   {
                     loginStat ?
-                      <img src={require("../../assets/images/cute_vl.jpg")} id="user-avatar" />
+                      <img class="rounded-circle shadow-1-strong me-3"
+                        src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
+                        height="40" />
                       :
                       <div id="user-icon">
-                        <FontAwesomeIcon icon={faUser} size="lg"/>
+                        <FontAwesomeIcon icon={faUser} size="lg" />
                       </div>
                   }
                 </div>

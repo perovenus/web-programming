@@ -4,6 +4,7 @@ import background from "./assets/images/background.jpg";
 import News from "./pages/news/News";
 import ProductDetail from "./pages/product-detail/ProductDetail";
 import CategoriesBar from "./components/categories-bar/CategoriesBar";
+import ComementBlock from "./components/comment-block/commentblock";
 
 function App() {
   var images = [

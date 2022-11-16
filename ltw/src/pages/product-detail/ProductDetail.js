@@ -9,9 +9,30 @@ import {
   faLaptop,
   faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
+import ComementBlock from '../../components/comment-block/commentblock';
 import './ProductDetail.css'
 
 export default function ProductDetail() {
+
+  const commentList = [{
+    "idx": "0",
+    "userName": "Hưng Lê",
+    "role": "user",
+    "comment": "Nhìn cũng được",
+    "replyList": [
+      {
+        "idx": "0",
+        "userName": "Hưng Lê",
+        "role": "user",
+        "comment": "Nhìn cũng được"
+      },
+      {
+        "idx": "1",
+        "userName": "Hưng Lê",
+        "role": "admin",
+        "comment": "Vậy được rồi m còn đòi gì nữa"
+      }]
+  }]
   return (
     <>
       <header><Header /></header>
@@ -194,7 +215,39 @@ export default function ProductDetail() {
               </div>
             </div>
           </div>
+          <div class="row" style={{ marginTop: '7px' }}>
+            <div class="col-xs-12 col-lg-9">
+              <div class="comments">
+                <h5>Bình luận</h5>
+                <div class="p-2">
+                  <div class="d-flex flex-row align-items-start">
+                    <img class="rounded-circle shadow-1-strong me-3"
+                      src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
+                      height="40" />
+                    <textarea class="form-control shadow-none textarea" rows="3"></textarea >
+                  </div>
+                  <div class="mt-3">
+                    <button class="btn btn-primary btn-sm" type="button">Bình luận</button>
+                    <button class="btn btn-outline-primary btn-sm" type="button">Hủy</button>
+                  </div>
+                </div>
+                <hr />
+                <div class="comment-list">
+                  {
+                    commentList.map((comment) => {
+                      return <ComementBlock
+                        userName={comment.userName}
+                        comment={comment.comment}
+                        replyList={comment.replyList} />
+                    })
+                  }
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </>
   )
