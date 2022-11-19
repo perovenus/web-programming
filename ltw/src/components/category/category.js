@@ -3,6 +3,7 @@ import banner3 from "../../assets/images/banner3.webp";
 import product from "../../assets/images/sample.webp";
 import Banner from "../banner/banner";
 import Carousel from "../carousel/carousel";
+import "./category.css";
 function Category() {
   const images = [
     banner3,
@@ -28,14 +29,7 @@ function Category() {
     product,
   ];
   return (
-    <div
-      class="container-fluid"
-      style={{
-        padding: "0 40px",
-        width: "70%",
-        height: "500px",
-      }}
-    >
+    <div class="container-fluid">
       <Banner images={images} />
       <Carousel images={products} />
     </div>

@@ -1,41 +1,25 @@
-import bg from "../../assets/images/background.jpg";
 import "./carousel.css";
-import Card from "../card/card";
+import Item from "../item/item";
 function Carousel(props) {
-  function scrollwheel(e) {
-    var scrollmenu = document.getElementById("scroll-menu");
-    scrollmenu.scrollLeft += e.deltaY < 0 ? -100 : 100;
-  }
   return (
     <div
-      class="container-fluid"
       style={{
         padding: "0 40px",
-        height: "500px",
+        backgroundColor: "#ffffff",
+        marginBottom: "30px",
       }}
     >
       <div class="col-12">
-        <h1>
-          <span>Sản phẩm bán chạy</span>
-        </h1>
+        <h4>
+          <span>{props.title}</span>
+        </h4>
       </div>
-      <div
-        class="scrollmenu col"
-        onWheel={scrollwheel}
-        id="scroll-menu"
-        style={{ borderRadius: "10px" }}
-      >
-        {props.images.map((image, index) => {
-          return (
-            <Card
-              props={{
-                image: image,
-                key: index,
-              }}
-              key={index}
-            />
-          );
-        })}
+      <div class="owl-carousel owl-theme">
+        {props.images.map((image, index) => (
+          <div class="item" key={index}>
+            <Item image={image} />
+          </div>
+        ))}
       </div>
     </div>
   );
