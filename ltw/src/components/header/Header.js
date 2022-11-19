@@ -49,7 +49,7 @@ export default function Header() {
                 <div class="nav-link">
                   {
                     loginStat ?
-                      <img class="rounded-circle shadow-1-strong me-3"
+                      <img class="rounded-circle shadow-1-strong"
                         src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
                         height="40" />
                       :
