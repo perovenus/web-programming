@@ -9,7 +9,7 @@ import {
   faLaptop,
   faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
-import ComementBlock from '../../components/comment-block/commentblock';
+import CommentBlock from '../../components/comment-block/commentblock';
 import './ProductDetail.css'
 
 export default function ProductDetail() {
@@ -235,7 +235,7 @@ export default function ProductDetail() {
                 <div class="comment-list">
                   {
                     commentList.map((comment) => {
-                      return <ComementBlock
+                      return <CommentBlock
                         userName={comment.userName}
                         comment={comment.comment}
                         replyList={comment.replyList} />

@@ -1,0 +1,46 @@
+.col-left .container,
+.col-right .container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px 25px;
+    margin-bottom: 8px;
+}
+
+.col-left .container .mb-3 label,
+.col-left .container .mb-3 input {
+    font-size: 15px;
+}
+
+.col-right .container .header{
+    justify-content: space-between;
+}
+
+.col-right .edit-btn {
+    color: #0085FF;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.col-right .edit-btn:hover {
+    text-decoration: underline;
+}
+
+.col-right .container div div p {
+    margin: 0;
+}
+.col-right .container .item-name {
+    font-size: 14px;
+}
+
+.col-right .container .quantity {
+    font-size: 13px;
+    color: #767676;
+}
+
+.col-right .container .cost {
+    font-weight: 650;
+}
+
+.col-right .total-charge p {
+    margin-bottom: 10px;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import './commentblock.css'
 import { useRef } from 'react';
 
-export default function ComementBlock({ userName, comment, replyList }) {
+export default function CommentBlock({ userName, comment, replyList }) {
 
 
   return (
