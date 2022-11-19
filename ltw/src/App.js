@@ -1,6 +1,8 @@
 import Category from "./components/category/category";
-import Carousel from "./components/carousel/carousel";
+import Carousel1 from "./components/carousel/carousel";
 import background from "./assets/images/background.jpg";
+import Home from "./pages/home/home";
+import Cart from "./pages/cart/cart";
 
 function App() {
   var images = [
@@ -12,8 +14,7 @@ function App() {
     background,
   ];
 
-  return <Category images={images} />;
-
+  return <Cart />;
 }
 
 export default App;

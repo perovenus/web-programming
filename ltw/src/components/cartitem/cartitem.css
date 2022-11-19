@@ -1,0 +1,64 @@
+#mainitem #status,
+#thumbnail,
+#name,
+#price,
+#quantity,
+#total {
+  display: flex;
+  align-items: center;
+}
+#name text {
+  font-size: 14px;
+}
+#thumbnail {
+  justify-content: space-evenly;
+}
+#thumbnail img {
+  max-width: 70%;
+}
+#buttongroup {
+  border-radius: 5px;
+  border: solid 1px #e0e0e0;
+}
+#buttongroup #plus,
+#minus {
+  font-weight: 150;
+  height: 30px;
+}
+#n-q-b {
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+#n-q-b #name {
+  left: 0;
+}
+@media screen and (min-width: 1024px) {
+  #n-q-b #quantity,
+  #n-q-b #buttongroup,
+  #n-q-b #total,
+  #n-q-b #price {
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 768px) {
+  #total {
+    display: none;
+  }
+  #thumbnail img {
+    max-width: 80%;
+  }
+  #n-q-b #quantity,
+  #n-q-b #buttongroup,
+  #n-q-b #total,
+  #n-q-b #price {
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 541px) {
+  #total {
+    display: none;
+  }
+  #thumbnail img {
+    max-width: 80%;
+  }
+}
