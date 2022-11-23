@@ -33,10 +33,7 @@ function Home() {
     product,
   ];
   return (
-    <div className="home">
-      <header>
-        <Header />
-      </header>
+    <div className="home container">
       <Banner images={images} />
       <div className="col" id="home-body">
         <div className="row" id="home-content">
@@ -44,9 +41,6 @@ function Home() {
           <Carousel images={products} title={"Sản phẩm bán chạy"} />
         </div>
       </div>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }

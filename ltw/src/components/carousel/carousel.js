@@ -2,13 +2,7 @@ import "./carousel.css";
 import Item from "../item/item";
 function Carousel(props) {
   return (
-    <div
-      style={{
-        padding: "0 40px",
-        backgroundColor: "#ffffff",
-        marginBottom: "30px",
-      }}
-    >
+    <div id="main-carousel">
       <div class="col-12">
         <h4>
           <span>{props.title}</span>
