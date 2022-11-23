@@ -1,25 +1,23 @@
-import Category from "./components/category/category";
-import Carousel1 from "./components/carousel/carousel";
-import background from "./assets/images/background.jpg";
+import Layout from "./components/layout/layout";
+import Home from "./pages/home/home";
 import News from "./pages/news/News";
-import ProductDetail from "./pages/product-detail/ProductDetail";
-import CategoriesBar from "./components/categories-bar/CategoriesBar";
-import Payment from "./pages/payment/Payment";
-
+import Cart from "./pages/cart/cart";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 function App() {
-  var images = [
-    background,
-    background,
-    background,
-    background,
-    background,
-    background,
-  ];
-
   return (
-    <Payment />
-  )
-
+    <Layout>
+      <Routes>
+        <Route index path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Layout>
+  );
 }
 
 export default App;
