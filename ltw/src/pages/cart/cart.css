@@ -1,0 +1,63 @@
+#main {
+  background-color: #f5f5fa;
+}
+#maincart {
+  margin-top: 80px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#cartbody {
+  justify-content: space-evenly;
+}
+#monitor1 {
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 8px;
+  background-color: white;
+}
+#monitor1 .col-12 :not(:last-child) {
+  padding-bottom: 10px;
+}
+#delall {
+  display: flex;
+  justify-content: flex-end;
+  color: blue;
+  margin-top: 20px;
+}
+#listitem {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+#monitortitle {
+  font-size: 14;
+}
+#conti {
+  display: flex;
+  justify-content: space-around;
+}
+#conti button {
+  width: 100%;
+}
+#total-1 {
+  color: blue;
+  display: flex;
+  justify-content: flex-end;
+}
+#monitortext-1 {
+  display: flex;
+  justify-content: flex-end;
+}
+@media screen and (min-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+  #monitor {
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 541px) {
+  #monitor {
+    padding: 0px;
+  }
+}

@@ -1,5 +1,4 @@
-#category {
-  background-color: black;
-  height: 100px;
-  width: 100%;
+#container-fluid {
+  background-color: purple !important;
+  padding: 0 20px;
 }

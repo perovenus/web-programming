@@ -1,0 +1,35 @@
+#footer {
+  background-color: #e9edf2;
+  /* disable dot in li */
+}
+#footer ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+#footer ul li a {
+  color: #000;
+  text-decoration: none;
+}
+#footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+#footer-content .col {
+  margin: 10px;
+  text-align: left;
+}
+#footer-content .col h3 {
+  text-align: left;
+}
+#footer-bottom {
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+#footer-bottom a {
+  color: black;
+  text-decoration: none;
+}

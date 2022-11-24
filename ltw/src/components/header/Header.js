@@ -3,41 +3,88 @@ import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 export default function Header() {
   var loginStat = true;
+  const navigate = useNavigate();
+  const goToCart = () => {
+    navigate("/cart");
+  };
+  const goToNews = () => {
+    navigate("/news");
+  };
+  const goToHome = () => {
+    navigate("/");
+  };
 
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Tên gì đó</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <a class="navbar-brand" onClick={goToHome}>
+          Tên gì đó
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Tên gì đó</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Tên gì đó
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="navbar-nav">
+            <ul
+              class="navbar-nav justify-content-end flex-grow-1 pe-3"
+              id="navbar-nav"
+            >
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Về chúng tôi</a>
+                <a class="nav-link" aria-current="page">
+                  Về chúng tôi
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Tin tức</a>
+                <a class="nav-link" onClick={goToNews}>
+                  Tin tức
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Sản phẩm</a>
+                <a class="nav-link" aria-current="page" href="#">
+                  Sản phẩm
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Liên hệ</a>
+                <a class="nav-link" href="#">
+                  Liên hệ
+                </a>
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item" type="button">
-                <div class="nav-link" id="shopping-cart" onClick={() => console.log("Cart click")}>
-                  <div class="nav-link">
+              <li class="nav-item">
+                <div class="nav-link" type="button" id="shopping-cart">
+                  <div class="nav-link" onClick={goToCart}>
                     <FontAwesomeIcon icon={faCartShopping} size="xl" />
                   </div>
                   <div id="your-cart">
@@ -92,6 +139,7 @@ export default function Header() {
                         <FontAwesomeIcon icon={faUser} size="lg" />
                       </div>
                   }
+
                 </div>
               </li>
             </ul>
@@ -99,5 +147,5 @@ export default function Header() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
