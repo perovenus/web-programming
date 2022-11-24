@@ -1,7 +1,8 @@
 import React from 'react';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 export default function Header() {
   var loginStat = true;
@@ -34,7 +35,7 @@ export default function Header() {
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
+              <li class="nav-item" type="button">
                 <div class="nav-link" id="shopping-cart" onClick={() => console.log("Cart click")}>
                   <div class="nav-link">
                     <FontAwesomeIcon icon={faCartShopping} size="xl" />
@@ -49,9 +50,43 @@ export default function Header() {
                 <div class="nav-link">
                   {
                     loginStat ?
-                      <img class="rounded-circle shadow-1-strong"
-                        src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
-                        height="40" />
+                      <>
+                        <img class="rounded-circle shadow-1-strong dropdown-toggle" data-bs-toggle="dropdown" aria-aria-expanded="false"
+                          src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
+                          height="40" />
+                        <ul class="dropdown-menu">
+                          <li style={{marginBottom: '15px'}}>
+                            <div style={{ display: 'flex', padding: '0 10px' }}>
+                              <img class="shadow-1-strong"
+                                src={require('../../assets/images/cute_vl.jpg')} 
+                                alt="avatar" 
+                                width="45"
+                                height="45" />
+                              <div style={{ marginLeft: '10px' }}>
+                                <strong>Hưng Lê</strong>
+                                <p style={{
+                                  overflow: 'hidden',
+                                  whiteSpace: 'nowrap',
+                                  textOverflow: 'ellipsis',
+                                  width: '170px'
+                                }}>medfancy0@gmail.com</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="dropdown-item" type="button" style={{marginBottom: '15px'}}>
+                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px' }}>
+                              <FontAwesomeIcon icon={faUser} size="md" />
+                              <p style={{ marginLeft: '10px' }}>Thông tin tài khoản</p>
+                            </div>
+                          </li>
+                          <li class="dropdown-item sign-out-btn" type="button">
+                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px'}}>
+                              <FontAwesomeIcon icon={faArrowRightFromBracket} size="md" />
+                              <p style={{ marginLeft: '10px' }}>Đăng xuất</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </>
                       :
                       <div id="user-icon">
                         <FontAwesomeIcon icon={faUser} size="lg" />
