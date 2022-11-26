@@ -1,8 +1,8 @@
 import "./footer.css";
 function Footer() {
   return (
-    <div id="footer" class="row">
-      <div class="container">
+    <div class="container-fluid">
+      <div id="footer" class="row">
         <div class="row" id="footer-content">
           <div class="col">
             <ul>
