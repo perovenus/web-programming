@@ -1,0 +1,38 @@
+html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    width: 100%;
+    min-height: 100vh;
+    user-select: none;
+    outline: none;
+    position: relative;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+h1,h2,h3 {
+    text-align: center;
+  }
+.logo  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10%;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+table, th, td, tr {
+    border: 2px solid black;
+    text-align: center;
+}
+
+
+.long {
+    display: list-item;
+}

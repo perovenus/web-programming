@@ -60,25 +60,13 @@ function Register() {
             <input
                 type="date"
                 className="form-control"
-                placeholder="Enter email"
+                placeholder="Enter date"
 
             />
-            </div>
 
-            <div>
-            <div className="custom-control custom-checkbox">
-                <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-                </label>
             </div>
-            </div>
-
-            <div className="d-grid">
+            <div className="space"></div>
+            <div className="d-grid space">
             <button type="submit" className="btn btn-primary">
             Register
             </button>

@@ -1,53 +1,41 @@
 import React from "react";
-
-function login() {
+import "./Login.css"
+function Login() {
     return (
-        <form>
-            <h3>Log In</h3>
+        <div className="login-form" >
+
 
             <div className="mb-3">
-            <label>Tên đăng nhập</label>
+  
             <input
                 type="username"
                 className="form-control"
-                placeholder="Enter username"
+                placeholder="Email hoặc số điện thoại"
 
             />
             </div>
 
             <div className="mb-3">
-            <label>Mật khẩu</label>
             <input
                 type="password"
                 className="form-control"
-                placeholder="Enter password"
+                placeholder="Mật khẩu"
 
             />
             </div>
 
-            <div className="mb-3">
-            <div className="custom-control custom-checkbox">
-                <input
-                type="checkbox"
-                className="custom-control-input"
-                id="customCheck1"
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                Remember me
-                </label>
-            </div>
-            </div>
+  
 
             <div className="d-grid">
             <button type="submit" className="btn btn-primary">
-                Submit
+               Đăng nhập
             </button>
             </div>  
-            <p className="forgot-password text-right">
-            <a href="#">Register</a>
+            <p className="register"> Chưa có tài khoản? &#160;
+            <a href="#">Đăng kí mới</a>
             </p>
-        </form>
+        </div>
     )
 }
 
-export default login;   
+export default Login;   
