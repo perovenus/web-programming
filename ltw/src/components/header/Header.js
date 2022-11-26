@@ -23,6 +23,10 @@ export default function Header() {
     navigate("/");
   };
 
+  const goToUserInfo = () => {
+    navigate("/user-info")
+  }
+
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -102,11 +106,11 @@ export default function Header() {
                           src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
                           height="40" />
                         <ul class="dropdown-menu">
-                          <li style={{marginBottom: '15px'}}>
+                          <li style={{ marginBottom: '15px' }}>
                             <div style={{ display: 'flex', padding: '0 10px' }}>
                               <img class="shadow-1-strong"
-                                src={require('../../assets/images/cute_vl.jpg')} 
-                                alt="avatar" 
+                                src={require('../../assets/images/cute_vl.jpg')}
+                                alt="avatar"
                                 width="45"
                                 height="45" />
                               <div style={{ marginLeft: '10px' }}>
@@ -120,14 +124,20 @@ export default function Header() {
                               </div>
                             </div>
                           </li>
-                          <li class="dropdown-item" type="button" style={{marginBottom: '15px'}}>
-                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px' }}>
+                          <li class="dropdown-item" type="button" style={{ marginBottom: '15px' }}>
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              paddingLeft: '27px'
+                            }}
+                              onClick={goToUserInfo}
+                            >
                               <FontAwesomeIcon icon={faUser} size="md" />
                               <p style={{ marginLeft: '10px' }}>Thông tin tài khoản</p>
                             </div>
                           </li>
                           <li class="dropdown-item sign-out-btn" type="button">
-                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px'}}>
+                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px' }}>
                               <FontAwesomeIcon icon={faArrowRightFromBracket} size="md" />
                               <p style={{ marginLeft: '10px' }}>Đăng xuất</p>
                             </div>
@@ -139,7 +149,6 @@ export default function Header() {
                         <FontAwesomeIcon icon={faUser} size="lg" />
                       </div>
                   }
-
                 </div>
               </li>
             </ul>
