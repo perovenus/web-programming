@@ -22,11 +22,12 @@ export default function Header() {
   const goToHome = () => {
     navigate("/");
   };
-
+  const goToContact = () => {
+    navigate("/contact")
+  }
   const goToUserInfo = () => {
     navigate("/user-info")
   }
-
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -80,7 +81,7 @@ export default function Header() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" onClick={goToContact}>
                   Liên hệ
                 </a>
               </li>
