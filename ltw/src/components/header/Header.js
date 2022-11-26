@@ -1,13 +1,15 @@
-import React from "react";
-import "./Header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import './Header.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useNavigate,
 } from "react-router-dom";
+
 export default function Header() {
   var loginStat = true;
   const navigate = useNavigate();
@@ -20,6 +22,10 @@ export default function Header() {
   const goToHome = () => {
     navigate("/");
   };
+
+  const goToUserInfo = () => {
+    navigate("/user-info")
+  }
 
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -81,7 +87,7 @@ export default function Header() {
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <div class="nav-link" id="shopping-cart">
+                <div class="nav-link" type="button" id="shopping-cart">
                   <div class="nav-link" onClick={goToCart}>
                     <FontAwesomeIcon icon={faCartShopping} size="xl" />
                   </div>
@@ -93,19 +99,56 @@ export default function Header() {
               </li>
               <li class="nav-item">
                 <div class="nav-link">
-                  {loginStat ? (
-                    <img
-                      class="rounded-circle shadow-1-strong me-3"
-                      src={require("../../assets/images/cute_vl.jpg")}
-                      alt="avatar"
-                      width="40"
-                      height="40"
-                    />
-                  ) : (
-                    <div id="user-icon">
-                      <FontAwesomeIcon icon={faUser} size="lg" />
-                    </div>
-                  )}
+                  {
+                    loginStat ?
+                      <>
+                        <img class="rounded-circle shadow-1-strong dropdown-toggle" data-bs-toggle="dropdown" aria-aria-expanded="false"
+                          src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
+                          height="40" />
+                        <ul class="dropdown-menu">
+                          <li style={{ marginBottom: '15px' }}>
+                            <div style={{ display: 'flex', padding: '0 10px' }}>
+                              <img class="shadow-1-strong"
+                                src={require('../../assets/images/cute_vl.jpg')}
+                                alt="avatar"
+                                width="45"
+                                height="45" />
+                              <div style={{ marginLeft: '10px' }}>
+                                <strong>Hưng Lê</strong>
+                                <p style={{
+                                  overflow: 'hidden',
+                                  whiteSpace: 'nowrap',
+                                  textOverflow: 'ellipsis',
+                                  width: '170px'
+                                }}>medfancy0@gmail.com</p>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="dropdown-item" type="button" style={{ marginBottom: '15px' }}>
+                            <div style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              paddingLeft: '27px'
+                            }}
+                              onClick={goToUserInfo}
+                            >
+                              <FontAwesomeIcon icon={faUser} size="md" />
+                              <p style={{ marginLeft: '10px' }}>Thông tin tài khoản</p>
+                            </div>
+                          </li>
+                          <li class="dropdown-item sign-out-btn" type="button">
+                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px' }}>
+                              <FontAwesomeIcon icon={faArrowRightFromBracket} size="md" />
+                              <p style={{ marginLeft: '10px' }}>Đăng xuất</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </>
+                      :
+                      <div id="user-icon">
+                        <FontAwesomeIcon icon={faUser} size="lg" />
+                      </div>
+                  }
                 </div>
               </li>
             </ul>

@@ -64,6 +64,26 @@
     color: #176FC0;
 }
 
+.fixed-top .nav-item .dropdown-menu {
+    left: calc(100vw - 250px);
+    right: 5px;
+    padding: 5px 0 10px 0 ;
+}
+
+.fixed-top .nav-item .dropdown-menu p,
+.fixed-top .nav-item .dropdown-menu strong {
+    margin: 0;
+    font-size: 14px;
+}
+
+.fixed-top .nav-item .dropdown-menu .dropdown-item {
+    padding: 0;
+}
+
+.fixed-top .nav-item .dropdown-menu .sign-out-btn {
+    color: #FF1E1E;
+}
+
 #shopping-cart {
     display: flex;
     margin-right: 20px;
