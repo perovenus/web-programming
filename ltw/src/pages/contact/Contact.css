@@ -1,6 +1,3 @@
-.contact-info{
-    padding: 80px;
-}
 .section-title {
     padding-bottom: 30px;
 }
@@ -43,4 +40,9 @@
 .dv {
     font-size: 18px;
     font-weight: 15px;
+}
+
+.map-wrapper .map {
+    width: 100%;
+    height: 400px;
 }

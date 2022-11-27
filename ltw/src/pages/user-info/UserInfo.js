@@ -5,7 +5,7 @@ import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 export default function UserInfo() {
   return (
-    <div class="body" style={{ paddingTop: '100px' }}>
+    <div class="body" style={{ paddingTop: '100px'}}>
       <div class="container" id="container-custom">
         <h5 style={{textAlign: 'center'}}>Thông tin tài khoản</h5>
         <div class="row shadow-sm user-info-form">

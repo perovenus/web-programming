@@ -5,15 +5,13 @@ export default function Contact() {
   return (
     <div className="body">
       <div className="container">
-
-
         <div className="section-title">
           <h2>Thông tin liên hệ</h2>
 
           <h3>Công ty TNHH PINE@APPLE</h3>
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-xs-12 col-lg-6">
             <div className="dv bold color-gray">
               GPĐKKD số 41020980 do Sở KHĐT TP.Hồ Chí Minh cấp ngày 25/03/2004
             </div>
@@ -95,12 +93,11 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-xs-12 col-lg-6">
             <div class="map-wrapper" id="loadmapaddress">
               <iframe
+                class="map"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d979.6171914801357!2d106.7971172!3d10.8519064!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527327468fff7%3A0x7e7d9a5c638bdb95!2zVMOyYSBuaMOgIE1XRyAtIENUQ1AgVGjhur8gR2nhu5tpIERpIMSQ4buZbmc!5e0!3m2!1sen!2s!4v1546245923366"
-                width="600"
-                height="470"
                 frameborder="0"
                 scrolling="no"
                 marginheight="0"
