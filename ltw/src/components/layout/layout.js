@@ -3,9 +3,6 @@ import Footer from "../footer/footer";
 import "./layout.css";
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
 } from "react-router-dom";
 function Layout(props) {
   return (
