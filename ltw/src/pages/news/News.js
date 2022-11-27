@@ -23,7 +23,12 @@ export default function News() {
           <CategoriesBar />
           <div class="row g-2 news-list">
             {news.map((item) => (
-              <Card image={item["image"]} name={item["name"]} />
+              <Card
+                image={item["image"]}
+                name={item["name"]}
+                id={item["id"]}
+                key={item["id"]}
+              />
             ))}
           </div>
         </div>

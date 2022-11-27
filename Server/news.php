@@ -21,6 +21,7 @@ class Post{
             $list[] = [
                 'name' => $row['name'],
                 'image' => $row['thumbnail'],
+                'id' => $row['ID'],
             ];
             
         }
