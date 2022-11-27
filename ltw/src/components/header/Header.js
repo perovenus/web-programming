@@ -24,6 +24,9 @@ export default function Header() {
   const goToCart = () => {
     navigate("/cart");
   };
+  const goToAbout = () => {
+    navigate("/about")
+  }
   const goToNews = () => {
     navigate("/news");
   };
@@ -36,6 +39,7 @@ export default function Header() {
   const goToUserInfo = () => {
     navigate("/user-info")
   }
+  
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -74,7 +78,7 @@ export default function Header() {
               id="navbar-nav"
             >
               <li class="nav-item">
-                <a class="nav-link" type="button" aria-current="page">
+                <a class="nav-link" type="button" onClick={goToAbout}>
                   Về chúng tôi
                 </a>
               </li>
@@ -96,32 +100,37 @@ export default function Header() {
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <div class="nav-link" type="button" id="shopping-cart">
-                  {
-                    admin ?
-                      <>
-                        <div
-                          class="nav-link d-flex align-items-center"
-                          data-bs-toggle="dropdown"
-                          aria-aria-expanded="false">
-                          <p style={{ fontSize: '16px', marginLeft: '5px' }}>Quản lý</p>
-                          <FontAwesomeIcon style={{ marginLeft: '5px' }} icon={faChevronDown} size="xs" />
-                        </div>
-                        <ul class="dropdown-menu" id="manange-menu">
-                          <li class="dropdown-item">cc</li>
-                        </ul>
-                      </> :
-                      <>
-                        <div class="nav-link" onClick={goToCart}>
-                          <FontAwesomeIcon icon={faCartShopping} size="xl" />
-                        </div>
-                        <div id="your-cart">
-                          <p>Giỏ hàng của bạn</p>
-                          <p>(0) sản phẩm</p>
-                        </div>
-                      </>
-                  }
-                </div>
+                {
+                  admin ?
+                    <div class="nav-link" type="button" id="shopping-cart">
+                      <div class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" aria-aria-expanded="false">
+                        <p style={{ fontSize: '16px' }}>Quản lý</p>
+                        <FontAwesomeIcon style={{marginLeft: '5px'}} icon={faChevronDown} size="xs" />
+                      </div>
+                      <ul class="dropdown-menu" id="manage-menu">
+                        <li class="dropdown-item">
+                          <p>Quản lý tin tức</p>
+                        </li>
+                        <li><hr class="dropdown-divider"/></li>
+                        <li class="dropdown-item">
+                          <p>Quản lý sản phẩm</p>
+                        </li>
+                        <li><hr class="dropdown-divider"/></li>
+                        <li class="dropdown-item">
+                          <p>Quản lý đơn hàng</p>
+                        </li>
+                      </ul>
+                    </div> :
+                    <div class="nav-link d-flex" type="button" id="shopping-cart">
+                      <div class="nav-link" onClick={goToCart}>
+                        <FontAwesomeIcon icon={faCartShopping} size="xl" />
+                      </div>
+                      <div id="your-cart">
+                        <p>Giỏ hàng của bạn</p>
+                        <p>(0) sản phẩm</p>
+                      </div>
+                    </div>
+                }
               </li>
               <li class="nav-item">
                 <div class="nav-link">

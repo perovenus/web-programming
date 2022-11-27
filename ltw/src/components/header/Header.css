@@ -74,12 +74,6 @@
     padding: 5px 0 10px 0;
 }
 
-.fixed-top .nav-item #manage-menu {
-    left: calc(100vw - 400px);
-    right: 10px;
-    padding: 5px 0 10px 0;
-}
-
 .fixed-top .nav-item .dropdown-menu p,
 .fixed-top .nav-item .dropdown-menu strong {
     margin: 0;
@@ -95,7 +89,6 @@
 }
 
 #shopping-cart {
-    display: flex;
     margin-right: 20px;
 }
 
@@ -109,5 +102,16 @@
     height: 40px;
     border: 1px solid rgb(128, 125, 125);
     border-radius: 50%;
+}
+
+.fixed-top .nav-item #manage-menu {
+    left: calc(100vw - 320px);
+    right: 120px;
+    padding: 10px 0;
+}
+
+.fixed-top .nav-item #manage-menu p {
+    font-size: 16px;
+    padding: 0 10px;
 }
 

@@ -1,0 +1,23 @@
+.slogan {
+    font-weight: 700;
+    font-style: italic;
+    padding-left: 20px;
+    border-left: 4px solid rgb(193, 193, 193)
+}
+
+#container-custom ul li {
+    padding: 5px 0;
+}
+
+.human-resources {
+    border-collapse: collapse;
+    border-style: hidden;
+    border-bottom: 1px solid rgb(208, 207, 207);
+}
+
+.human-resources td,
+.human-resources th {
+    border: 1px solid rgb(208, 207, 207);
+    text-align: center;
+    width: 25%;
+}
