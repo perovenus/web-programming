@@ -6,6 +6,7 @@ import Cart from "./pages/cart/cart";
 import UserInfo from "./pages/user-info/UserInfo";
 import ProductDetail from "./pages/product-detail/ProductDetail"
 import About from "./pages/about/About";
+import Login from "./pages/login/Login";
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Layout>
   );

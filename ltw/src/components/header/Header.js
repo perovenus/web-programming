@@ -17,7 +17,7 @@ import {
 
 export default function Header() {
 
-  var loginStat = true;
+  var loginStat = false;
   var admin = true;
 
   const navigate = useNavigate();
@@ -38,6 +38,9 @@ export default function Header() {
   }
   const goToUserInfo = () => {
     navigate("/user-info")
+  }
+  const goToLogin = () => {
+    navigate("/login")
   }
   
   return (
@@ -180,8 +183,8 @@ export default function Header() {
                         </ul>
                       </>
                       :
-                      <div id="user-icon">
-                        <FontAwesomeIcon icon={faUser} size="lg" />
+                      <div id="user-icon" type="button" onClick={goToLogin}>
+                        <FontAwesomeIcon icon={faUser} size="md" />
                       </div>
                   }
                 </div>

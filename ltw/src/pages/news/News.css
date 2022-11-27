@@ -1,6 +1,7 @@
 .body {
     padding: 70px 10px 10px 10px; 
     background-color: #F5F5FA;
+    min-height: 500px;
 }
 
 .news-list {

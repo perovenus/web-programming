@@ -36,6 +36,16 @@
 
 }
 
+#user-icon {
+    border: 2px solid rgb(196, 196, 196);
+    border-radius: 50%;
+}
+
+#user-icon:hover {
+    color: #0075E1;
+    border: 2px solid #0075E1;
+}
+
 @media screen and (max-width: 992px) {
     #your-cart {
         margin-left: 5px;
