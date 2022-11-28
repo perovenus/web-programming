@@ -42,6 +42,9 @@ export default function Header() {
   const goToLogin = () => {
     navigate("/login")
   }
+  const goToManageProducts = () => {
+    navigate("/manage-products")
+  } 
   
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -115,7 +118,7 @@ export default function Header() {
                           <p>Quản lý tin tức</p>
                         </li>
                         <li><hr class="dropdown-divider"/></li>
-                        <li class="dropdown-item">
+                        <li class="dropdown-item" onClick={goToManageProducts}>
                           <p>Quản lý sản phẩm</p>
                         </li>
                         <li><hr class="dropdown-divider"/></li>
