@@ -6,6 +6,13 @@
   border: none;
   border-radius: 0;
 }
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
 @media screen and (min-width: 768px) {
   .card p {
     font-size: 10px;
