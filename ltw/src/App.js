@@ -1,6 +1,7 @@
 import Layout from "./components/layout/layout";
 import Home from "./pages/home/home";
 import News from "./pages/news/News";
+import Products from "./pages/products/Products";
 import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/cart";
 import UserInfo from "./pages/user-info/UserInfo";
@@ -16,6 +17,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import './App.css'
 
 function App() {
   return (
@@ -24,6 +26,10 @@ function App() {
         <Route index element={<Home />} />
         <Route path="news">
           <Route index element={<News />} />
+          <Route path="*" element={<ProductDetail />} />
+        </Route>
+        <Route path="products">
+          <Route index element={<Products />} />
           <Route path="*" element={<ProductDetail />} />
         </Route>
         <Route path="cart" element={<Cart />} />

@@ -1,20 +1,15 @@
-import React from "react";
-// import CategoriesBar from "../../components/categories-bar/CategoriesBar";
+import React from 'react'
 import Card from "../../components/card/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import "./News.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-export default function News() {
+
+export default function Products() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost/controllers/news.controller.php", {
-        params: {
-          action: 0,
-        },
-      })
+      .get("http://localhost/news.php") //url to see news.php
       .then((res) => {
         setNews(res.data);
       })
@@ -22,8 +17,6 @@ export default function News() {
         console.log(err);
       });
   }, []);
-
-  console.log(news);
   return (
     <div class="body">
       <div class="container" style={{ padding: "0" }}>
@@ -42,34 +35,34 @@ export default function News() {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav flex-grow-1 justify-content-around pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Tin tức công nghệ</a>
+                  <a class="nav-link" aria-current="page" href="#">Laptop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Đánh giá sản phẩm</a>
+                  <a class="nav-link" href="#">PC</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Thủ thuật</a>
+                  <a class="nav-link" href="#">Điện thoại</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Game</a>
+                  <a class="nav-link" href="#">Phụ kiện</a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <div class="row g-2 news-list">
+        <div class="row g-1 news-list">
           {news.map((item) => (
             <Card
+              type="product"
               image={item["image"]}
-              title={item["title"]}
-              time_up={item["time_up"]}
-              content={item["content"]}
+              name={item["name"]}
               id={item["id"]}
+              price={item["price"]}
               key={item["id"]}
             />
           ))}
         </div>
       </div>
     </div>
-  );
+  )
 }

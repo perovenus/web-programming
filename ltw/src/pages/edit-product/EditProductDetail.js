@@ -66,7 +66,7 @@ export default function EditProductDetail() {
   return (
     <div class="body" style={{ paddingTop: '100px' }}>
       <div class="container" id="container-custom">
-        <h5 style={{ textAlign: 'center' }}>Thêm sản phẩm mới</h5>
+        <h5 style={{ textAlign: 'center' }}>Chỉnh sửa thông tin sản phẩm</h5>
         <div class="add-new-product-form">
           <div class="row mb-3">
             <div class="col-xs-12 col-md-8">
