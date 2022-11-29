@@ -9,7 +9,11 @@ export default function Products() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost/news.php") //url to see news.php
+      .get("http://localhost/controllers/products.controller.php", {
+        params: {
+          action: 0,
+        },
+      }) //url to see news.php
       .then((res) => {
         setNews(res.data);
       })

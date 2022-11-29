@@ -18,6 +18,7 @@ class ProductsModel{
                 'name' => $row['name'],
                 'image' => $row['thumbnail'],
                 'id' => $row['ID'],
+                'price' => $row['price'],
                 'attribute' => $row['attr'],
             ];
             

@@ -1,5 +1,5 @@
 <?php
-include_once 'models/products.model.php';
+include_once '.././models/products.model.php';
 class ProductsController{
     private $productsModel;
     public function __construct(){
