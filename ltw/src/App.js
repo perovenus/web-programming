@@ -10,6 +10,8 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import ManageProducts from "./pages/manage-products/ManageProducts";
 import AddNewProduct from "./pages/add-new-product/AddNewProduct";
+import AdminProductDetail from "./pages/admin-product-detail/AdminProductDetail";
+import EditProductDetail from "./pages/edit-product/EditProductDetail";
 import {
   Routes,
   Route,
@@ -31,8 +33,13 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="manage-products" element={<ManageProducts />} />
+        <Route path="manage-products">
+          <Route index element={<ManageProducts />} />
+          <Route path="*" element={<AdminProductDetail />} />
+        </Route>
+        <Route path="admin-product-detail" element={<AdminProductDetail />} />
         <Route path="add-new-product" element={<AddNewProduct />} />
+        <Route path="edit-product-detail" element={<EditProductDetail />} />
       </Routes>
     </Layout>
   );

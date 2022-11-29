@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/header/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTruckFast,
@@ -10,9 +9,10 @@ import {
   faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
 import CommentBlock from '../../components/comment-block/commentblock';
-import './ProductDetail.css'
+import { useNavigate, useLocation, useParams } from 'react-router-dom'
+import './AdminProductDetail.css'
 
-export default function ProductDetail() {
+export default function AdminProductDetail() {
   const commentList = [{
     "idx": "0",
     "userName": "Hưng Lê",
@@ -32,6 +32,22 @@ export default function ProductDetail() {
         "comment": "Vậy được rồi m còn đòi gì nữa"
       }]
   }]
+
+  const navigate = useNavigate();
+
+  const id = useParams();
+  const location = useLocation()
+
+  console.log("id = ", location.state.id);
+
+  const goToEditProductDetail = () => {
+    navigate('/edit-product-detail', {
+      state: {
+        id: location.state.id
+      }
+    });
+  }
+
   return (
     <div class="body">
       <div class="container">
@@ -64,10 +80,10 @@ export default function ProductDetail() {
                       <div class="container-fluid">
                         <div class="row">
                           <div class="col-6">
-                            <button type="button" class="btn btn-primary">Mua ngay</button>
+                            <button type="button" class="btn btn-danger">Xóa</button>
                           </div>
                           <div class="col-6">
-                            <button type="button" class="btn btn-outline-primary">Thêm vào giỏ hàng</button>
+                            <button type="button" class="btn btn-outline-primary" onClick={goToEditProductDetail} >Chỉnh sửa</button>
                           </div>
                         </div>
                       </div>
