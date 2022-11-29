@@ -13,14 +13,16 @@ class Post{
         $this->conn = $this->db->connect();
     }
     public function getProducts(){
-        $sql = "SELECT * FROM product";
+        $sql = "SELECT * FROM news";
         $result = $this->conn->query($sql);
         $list = [];
         while($row = $result->fetch_assoc()) {
             //return list json
             $list[] = [
-                'name' => $row['name'],
+                'title' => $row['title'],
+                'content' => $row['content'],
                 'image' => $row['thumbnail'],
+                'time_up' => $row['time_up'],
                 'id' => $row['ID'],
             ];
             

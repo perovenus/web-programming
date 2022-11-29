@@ -33,6 +33,9 @@ export default function Header() {
   const goToHome = () => {
     navigate("/");
   };
+  const goToProducts = () => {
+    navigate("/products")
+  }
   const goToContact = () => {
     navigate("/contact")
   }
@@ -50,7 +53,7 @@ export default function Header() {
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" type="button" onClick={goToHome}>
-          Tên gì đó
+          BKTECH
         </a>
         <button
           class="navbar-toggler"
@@ -69,7 +72,7 @@ export default function Header() {
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <a type="button">Tên gì đó</a>
+              <a type="button">BKTECH</a>
             </h5>
             <button
               type="button"
@@ -94,7 +97,7 @@ export default function Header() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" type="button" aria-current="page" href="#">
+                <a class="nav-link" type="button" onClick={goToProducts}>
                   Sản phẩm
                 </a>
               </li>
