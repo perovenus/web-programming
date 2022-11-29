@@ -8,7 +8,11 @@ export default function News() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost/news.php") //url to see news.php
+      .get("http://localhost/controllers/news.controller.php", {
+        params: {
+          action: 0,
+        },
+      })
       .then((res) => {
         setNews(res.data);
       })
@@ -24,7 +28,7 @@ export default function News() {
           {news.map((item) => (
             <Card
               image={item["image"]}
-              name={item["name"]}
+              name={item["title"]}
               id={item["id"]}
               key={item["id"]}
             />
