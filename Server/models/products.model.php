@@ -17,9 +17,9 @@ class ProductsModel{
             $list[] = [
                 'name' => $row['name'],
                 'image' => $row['thumbnail'],
-                'id' => $row['ID'],
+                'id' => $row['id'],
                 'price' => $row['price'],
-                'attribute' => $row['attr'],
+                // 'attribute' => $row['attr'],
             ];
             
         }
@@ -33,13 +33,14 @@ class ProductsModel{
         while($row = $result->fetch_assoc()) {
             //return list json
             $list[] = [
-                'id' => $row['ID'],
-                "title" => $row['title'],
+                'id' => $row['id'],
+                "brand" => $row['brand'],
                 "price" => $row['price'],
+                "warranty" => $row['warranty'],
                 'name' => $row['name'],
                 "description" => $row['description'],
                 'image' => $row['thumbnail'],
-                "category" => $row['category_id'],
+                "type" => $row['type'],
                 'attribute' => $row['attr'],
             ];
             

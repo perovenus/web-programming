@@ -1,14 +1,11 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import axios from 'axios';
 
 export default function EditProductDetail() {
 
   const location = useLocation()
-
-  let id = location.state.id
-
-  console.log("id in edit product", id);
 
   const [name, setName] = useState("")
   const [type, setType] = useState("1")
@@ -62,6 +59,73 @@ export default function EditProductDetail() {
   const [accessoryColor, setAccessoryColor] = useState("")
   const [accessoryType, setAccessoryType] = useState("")
   const [accesssoryConnect, setAccessoryConnect] = useState("")
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/controllers/products.controller.php", {
+        params: {
+          action: 1,
+          id: location.state.id
+        },
+      }) //url to see news.php
+      .then((res) => {
+        // console.log(JSON.parse(res.data[0].attribute))
+        let product = res.data[0]
+        let specifications = JSON.parse(product.attribute)
+        setName(product.name)
+        setType(product.type)
+        setImgURL(product.image)
+        setPrice(product.price)
+        setBrand(product.brand)
+        setWarranty(product.warranty)
+        setDescription(product.description)
+        if (product.type == 1) {
+          setLaptopSeries(specifications.series)
+          setLaptopPartNum(specifications.partnum)
+          setLaptopColor(specifications.color)
+          setLaptopDemand(specifications.demand)
+          setLaptopCpuGen(specifications.cpugen)
+          setLaptopCpu(specifications.cpu)
+          setLaptopGpu(specifications.gpu)
+          setLaptopRam(specifications.ram)
+          setLaptopScreen(specifications.screen)
+          setLaptopStorage(specifications.storage)
+          setLaptopKeyboard(specifications.keyboard)
+          setLaptopOS(specifications.os)
+          setLaptopPin(specifications.pin)
+          setLaptopWeight(specifications.weight)
+        } else if (product.type == 2) {
+          setPcPartNum(specifications.partnum)
+          setPcColor(specifications.color)
+          setPcCpuSeries(specifications.cpuseries)
+          setPcCpuGen(specifications.cpugen)
+          setPcCpu(specifications.cpu)
+          setPcGpu(specifications.gpu)
+          setPcRam(specifications.ram)
+          setPcStorage(specifications.storage)
+          setPcOS(specifications.os)
+        } else if (product.type == 3) {
+          setPhoneSeries(specifications.series)
+          setPhoneColor(specifications.color)
+          setPhoneScreen(specifications.screen)
+          setPhoneRom(specifications.rom)
+          setPhoneOS(specifications.os)
+          setPhoneRam(specifications.ram)
+          setPhoneFrontCam(specifications.frontcam)
+          setPhoneBackCam(specifications.backcam)
+          setPhonePin(specifications.pin)
+          setPhoneWeight(specifications.weight)
+        } else {
+          setAccessoryDemand(specifications.demand)
+          setAccessoryColor(specifications.color)
+          setAccessoryType(specifications.type)
+          setAccessoryConnect(specifications.connect)
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div class="body" style={{ paddingTop: '100px' }}>
