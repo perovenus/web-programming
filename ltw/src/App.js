@@ -1,6 +1,7 @@
 import Layout from "./components/layout/layout";
 import Home from "./pages/home/home";
 import News from "./pages/news/News";
+import NewsDetail from "./pages/news-detail/NewsDetail";
 import Products from "./pages/products/Products";
 import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/cart";
@@ -26,7 +27,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="news">
           <Route index element={<News />} />
-          <Route path="*" element={<ProductDetail />} />
+          <Route path="*" element={<NewsDetail />} />
         </Route>
         <Route path="products">
           <Route index element={<Products />} />

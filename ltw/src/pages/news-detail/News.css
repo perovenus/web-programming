@@ -1,0 +1,15 @@
+.news {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.news img {
+    width: 100%;
+    height: auto;
+}
+
+.news .time-up {
+    font-size: 14px;
+    color: rgb(112, 112, 112)
+}

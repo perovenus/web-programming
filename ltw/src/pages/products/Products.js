@@ -21,6 +21,7 @@ export default function Products() {
         console.log(err);
       });
   }, []);
+  
   return (
     <div class="body">
       <div class="container" style={{ padding: "0" }}>
