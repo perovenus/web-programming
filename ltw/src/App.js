@@ -1,6 +1,7 @@
 import Layout from "./components/layout/layout";
 import Home from "./pages/home/home";
 import News from "./pages/news/News";
+import NewsDetail from "./pages/news-detail/NewsDetail";
 import Products from "./pages/products/Products";
 import Contact from "./pages/contact/Contact";
 import Cart from "./pages/cart/cart";
@@ -9,9 +10,10 @@ import ProductDetail from "./pages/product-detail/ProductDetail";
 import About from "./pages/about/About";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import ManageNews from "./pages/manage-news/ManageNews";
 import ManageProducts from "./pages/manage-products/ManageProducts";
 import AddNewProduct from "./pages/add-new-product/AddNewProduct";
-import AdminProductDetail from "./pages/admin-product-detail/AdminProductDetail";
+import ManageProductDetail from "./pages/manage-product-detail/ManageProductDetail";
 import EditProductDetail from "./pages/edit-product/EditProductDetail";
 import {
   Routes,
@@ -26,7 +28,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="news">
           <Route index element={<News />} />
-          <Route path="*" element={<ProductDetail />} />
+          <Route path="*" element={<NewsDetail />} />
         </Route>
         <Route path="products">
           <Route index element={<Products />} />
@@ -39,11 +41,14 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="manage-news">
+          <Route index element={<ManageNews />} />
+          <Route path="*" />
+        </Route>
         <Route path="manage-products">
           <Route index element={<ManageProducts />} />
-          <Route path="*" element={<AdminProductDetail />} />
+          <Route path="*" element={<ManageProductDetail />} />
         </Route>
-        <Route path="admin-product-detail" element={<AdminProductDetail />} />
         <Route path="add-new-product" element={<AddNewProduct />} />
         <Route path="edit-product-detail" element={<EditProductDetail />} />
       </Routes>

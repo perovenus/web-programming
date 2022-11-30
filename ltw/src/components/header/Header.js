@@ -45,6 +45,9 @@ export default function Header() {
   const goToLogin = () => {
     navigate("/login")
   }
+  const goToManageNews = () => {
+    navigate("/manage-news")
+  }
   const goToManageProducts = () => {
     navigate("/manage-products")
   } 
@@ -117,7 +120,7 @@ export default function Header() {
                         <FontAwesomeIcon style={{marginLeft: '5px'}} icon={faChevronDown} size="xs" />
                       </div>
                       <ul class="dropdown-menu" id="manage-menu">
-                        <li class="dropdown-item">
+                        <li class="dropdown-item" onClick={goToManageNews}>
                           <p>Quản lý tin tức</p>
                         </li>
                         <li><hr class="dropdown-divider"/></li>

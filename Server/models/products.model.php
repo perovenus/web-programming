@@ -19,8 +19,6 @@ class ProductsModel{
                 'image' => $row['thumbnail'],
                 'id' => $row['id'],
                 'price' => $row['price'],
-                'attribute' => $row['attr'],
-                'description' => $row['description'],
             ];
             
         }
@@ -37,6 +35,7 @@ class ProductsModel{
                 'id' => $row['id'],
                 "brand" => $row['brand'],
                 "price" => $row['price'],
+                "warranty" => $row['warranty'],
                 'name' => $row['name'],
                 "description" => $row['description'],
                 'image' => $row['thumbnail'],

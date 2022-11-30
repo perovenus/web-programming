@@ -9,13 +9,12 @@ import {
   faShieldHalved
 } from '@fortawesome/free-solid-svg-icons';
 import CommentBlock from '../../components/comment-block/commentblock';
-import './ProductDetail.css'
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
+import './ManageProductDetail.css'
 
-export default function ProductDetail() {
-
+export default function ManageProductDetail() {
   const [product, setProduct] = useState({});
   const [specifications, setSpecifications] = useState({})
   const location = useLocation();
@@ -38,6 +37,17 @@ export default function ProductDetail() {
       });
   }, []);
 
+  const navigate = useNavigate();
+
+  const goToEditProductDetail = () => {
+    navigate('/edit-product-detail', {
+      state: {
+        id: location.state.id
+      }
+    });
+  }
+
+
   const commentList = [{
     "idx": "0",
     "userName": "Hưng Lê",
@@ -57,8 +67,6 @@ export default function ProductDetail() {
         "comment": "Vậy được rồi m còn đòi gì nữa"
       }]
   }]
-
-  // console.log(product.id);
 
   return (
     <>
@@ -115,10 +123,10 @@ export default function ProductDetail() {
                             <div class="container-fluid">
                               <div class="row">
                                 <div class="col-6">
-                                  <button type="button" class="btn btn-primary">Mua ngay</button>
+                                  <button type="button" class="btn btn-danger">Xóa</button>
                                 </div>
                                 <div class="col-6">
-                                  <button type="button" class="btn btn-outline-primary">Thêm vào giỏ hàng</button>
+                                  <button type="button" class="btn btn-outline-primary" onClick={goToEditProductDetail} >Chỉnh sửa</button>
                                 </div>
                               </div>
                             </div>

@@ -35,6 +35,7 @@ class NewsModel{
             $list[] = [
                 'id' => $row['ID'],
                 'title' => $row['title'],
+                'time_up' => $row['time_up'],
                 'content' => $row['content'],
                 "image" => $row['thumbnail'],
             ];

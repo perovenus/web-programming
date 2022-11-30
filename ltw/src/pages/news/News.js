@@ -57,7 +57,7 @@ export default function News() {
             </div>
           </div>
         </nav>
-        <div class="row g-2 news-list">
+        <div class="row g-1 news-list">
           {news.map((item) => (
             <Card
               image={item["image"]}

@@ -5,27 +5,35 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
+export default function ManageNews() {
+  const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost/controllers/products.controller.php", {
+      .get("http://localhost/controllers/news.controller.php", {
         params: {
           action: 0,
         },
-      }) //url to see news.php
+      })
       .then((res) => {
-        setProducts(res.data);
+        setNews(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  
+
+  console.log(news);
   return (
     <div class="body">
       <div class="container" style={{ padding: "0" }}>
         {/* <CategoriesBar /> */}
+        <div class="d-flex justify-content-between">
+          <h3 class="mb-3">Quản lý sản phẩm</h3>
+          <button
+            type="button"
+            class="btn btn-primary"
+            style={{ height: '40px' }}>Thêm sản phẩm mới</button>
+        </div>
         <nav class="navbar navbar-expand-lg categories-bar" id="categories-bar">
           <div class="container-fluid">
             <form class="d-flex" role="search">
@@ -40,34 +48,34 @@ export default function Products() {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav flex-grow-1 justify-content-around pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Laptop</a>
+                  <a class="nav-link" aria-current="page" href="#">Tin tức công nghệ</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">PC</a>
+                  <a class="nav-link" href="#">Đánh giá sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Điện thoại</a>
+                  <a class="nav-link" href="#">Thủ thuật</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Phụ kiện</a>
+                  <a class="nav-link" href="#">Game</a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
         <div class="row g-1 news-list">
-          {products.map((item) => (
+          {news.map((item) => (
             <Card
-              type="product"
               image={item["image"]}
-              name={item["name"]}
+              title={item["title"]}
+              time_up={item["time_up"]}
+              content={item["content"]}
               id={item["id"]}
-              price={item["price"]}
               key={item["id"]}
             />
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
