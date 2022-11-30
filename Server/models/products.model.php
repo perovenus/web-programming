@@ -17,9 +17,10 @@ class ProductsModel{
             $list[] = [
                 'name' => $row['name'],
                 'image' => $row['thumbnail'],
-                'id' => $row['ID'],
+                'id' => $row['id'],
                 'price' => $row['price'],
                 'attribute' => $row['attr'],
+                'description' => $row['description'],
             ];
             
         }
@@ -33,13 +34,13 @@ class ProductsModel{
         while($row = $result->fetch_assoc()) {
             //return list json
             $list[] = [
-                'id' => $row['ID'],
-                "title" => $row['title'],
+                'id' => $row['id'],
+                "brand" => $row['brand'],
                 "price" => $row['price'],
                 'name' => $row['name'],
                 "description" => $row['description'],
                 'image' => $row['thumbnail'],
-                "category" => $row['category_id'],
+                "type" => $row['type'],
                 'attribute' => $row['attr'],
             ];
             
@@ -48,7 +49,7 @@ class ProductsModel{
       
     }
     public function delProductsById($id){
-        $sql = "DELETE FROM product WHERE ID = $id";
+        $sql = "DELETE FROM product WHERE id = $id";
         $result = $this->productstable->query($sql);
         if($result){
             echo "Delete successfully";
