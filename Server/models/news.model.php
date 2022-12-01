@@ -38,6 +38,7 @@ class NewsModel{
                 'time_up' => $row['time_up'],
                 'content' => $row['content'],
                 "image" => $row['thumbnail'],
+                "type" => $row['type']
             ];
             
         }
@@ -55,7 +56,15 @@ class NewsModel{
         }
     }
     public function editNewsById($info){
-        $sql = "UPDATE news SET title = '".$info['title']."', image = '".$info['image']."' WHERE id = ".$info['id'];
+        var_dump($info);
+        // $sql = "UPDATE news SET title = ".$info['title'].", thumbnail = ".$info['image'].", content = ".$info['content'].", type = ".$info['type']." WHERE ID = ".$info['id'];
+        // $sql = "UPDATE news SET title = ".$info['title']. "WHERE ID = ". $info['id'];
+        $id = $info['id'];
+        $title = $info['title'];
+        $thumbnail = $info['image'];
+        $content = $info['content'];
+        $type = $info['type'];
+        $sql = "UPDATE news SET title = '$title', thumbnail = '$thumbnail', content = '$content', type = '$type' WHERE id = '$id'";
         $result = $this->newstable->query($sql);
         if($result){
             echo "Update successfully";
@@ -65,7 +74,7 @@ class NewsModel{
         }
     }
     public function addNews($info){
-        $sql = "INSERT INTO news (ID, title, content, thumbnail, time_up) VALUES (NULL, '".$info['title']."', '".$info['content']."', '".$info['image']."', CURRENT_TIMESTAMP)";
+        $sql = "INSERT INTO news (ID, title, content, thumbnail, type , time_up) VALUES (NULL, '".$info['title']."', '".$info['content']."', '".$info['image']."', '".$info['type']."', CURRENT_TIMESTAMP)";
         $result = $this->newstable->query($sql);
         if($result){
             echo "Add successfully";

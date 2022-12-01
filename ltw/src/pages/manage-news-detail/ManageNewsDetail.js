@@ -34,6 +34,26 @@ export default function ManageNewsDetail() {
     });
   }
 
+  const goBack = () => {
+    navigate(-1);
+  }
+
+  const deleteNews = () => {
+    axios
+      .get("http://localhost/controllers/news.controller.php", {
+        params: {
+          action: 2,
+          id: newsId
+        },
+      })
+      .then((res) => {
+        alert(res.data)
+        goBack()
+      })
+      .catch((err) => {
+        alert(err.data)
+      });
+  }
   const commentList = [{
     "idx": "0",
     "userName": "Hưng Lê",
@@ -58,13 +78,17 @@ export default function ManageNewsDetail() {
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-lg-9">
-            <div class="mb-2 d-flex" style={{justifyContent: 'flex-end'}}>
-              <button type="button" class="btn btn-danger me-2" style={{fontWeight: "600"}}>Xóa bài viết</button>
+            <div class="mb-2 d-flex" style={{ justifyContent: 'flex-end' }}>
+              <button
+                onClick={deleteNews}
+                type="button"
+                class="btn btn-danger me-2"
+                style={{ fontWeight: "600" }}>Xóa bài viết</button>
               <button
                 onClick={goToEditNewsDetail}
                 type="button"
                 class="btn btn-outline-primary"
-                style={{height: '40px', fontWeight: "600"}}>Sửa bài viết</button>
+                style={{ height: '40px', fontWeight: "600" }}>Sửa bài viết</button>
             </div>
             <div class="news">
               {

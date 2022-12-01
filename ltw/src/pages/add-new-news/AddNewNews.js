@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddNewNews() {
 
@@ -13,6 +15,27 @@ export default function AddNewNews() {
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
   today = yyyy + '/' + mm + '/' + dd;
+
+  const navigate = useNavigate()
+  
+  const goBack = () => {
+    navigate(-1);
+  }
+
+  const addNews = () => {
+    axios.post("http://localhost/controllers/news.controller.php", {
+      action: 4,
+      title: title,
+      type: type,
+      image: imgURL,
+      content: content
+    }).then((res) => {
+      alert("Thêm bài viết thành công")
+      goBack()
+    }).catch((err) => {
+      alert(err.data)
+    })
+  }
 
   return (
     <div class="body" style={{ paddingTop: '100px' }}>
@@ -83,6 +106,7 @@ export default function AddNewNews() {
           </div>
           <div class="d-flex justify-content-center">
             <button
+              onClick={addNews}
               type="button" class="btn btn-primary"
               style={{ width: '120px', height: '45px', alignSelf: 'center' }}
             >Xác nhận</button>

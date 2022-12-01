@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 export default function EditNewsDetail() {
@@ -23,15 +23,41 @@ export default function EditNewsDetail() {
       .then((res) => {
         let news = res.data[0]
         setTitle(news.title)
-        setType("1")
+        setType(news.type)
         setImgURL(news.image)
         setTimeUp(news.time_up)
         setContent(news.content)
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.data);
       });
   }, []);
+
+  const navigate = useNavigate()
+  
+  const goBack = () => {
+    navigate(-1);
+  }
+
+  
+
+  const editNews = () => {
+    axios.post("http://localhost/controllers/news.controller.php", {
+      action: 3,
+      id: parseInt(location.state.id),
+      title: title,
+      type: type,
+      image: imgURL,
+      content: content
+    }).then((res) => {
+      alert(res.data)
+      goBack()
+      console.log(res.data)
+    }).catch((err) => {
+      alert(err.data)
+    })
+  }
+
   return (
     <div class="body" style={{ paddingTop: '100px' }}>
       <div class="container" id="container-custom">
@@ -101,6 +127,7 @@ export default function EditNewsDetail() {
           </div>
           <div class="d-flex justify-content-center">
             <button
+              onClick={editNews}
               type="button" class="btn btn-primary"
               style={{ width: '120px', height: '45px', alignSelf: 'center' }}
             >Xác nhận</button>
