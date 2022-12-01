@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function ManageNews() {
   const [news, setNews] = useState([]);
@@ -22,17 +23,24 @@ export default function ManageNews() {
       });
   }, []);
 
+  const navigate = useNavigate()
+
+  const goToAddNewNews = () => {
+    navigate("/add-new-news")
+  }
+
   console.log(news);
   return (
     <div class="body">
       <div class="container" style={{ padding: "0" }}>
         {/* <CategoriesBar /> */}
         <div class="d-flex justify-content-between">
-          <h3 class="mb-3">Quản lý sản phẩm</h3>
+          <h3 class="mb-3">Quản lý tin tức</h3>
           <button
+            onClick={goToAddNewNews}
             type="button"
             class="btn btn-primary"
-            style={{ height: '40px' }}>Thêm sản phẩm mới</button>
+            style={{ height: '40px' }}>Thêm tin tức mới</button>
         </div>
         <nav class="navbar navbar-expand-lg categories-bar" id="categories-bar">
           <div class="container-fluid">

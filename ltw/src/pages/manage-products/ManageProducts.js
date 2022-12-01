@@ -13,15 +13,6 @@ export default function ManageProducts() {
     navigate("/add-new-product")
   }
 
-  // const goAdminProductDetail = (name, id) => {
-  //   //passing  name and id to news detail page
-  //   navigate(`${name}?id=${id}`, {
-  //     state: {
-  //       id: id
-  //     }
-  //   });
-  // };
-
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
