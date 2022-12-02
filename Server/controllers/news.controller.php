@@ -1,5 +1,6 @@
 <?php
-include_once '.././models/news.model.php';
+include_once ".././models/db.model.php";
+include_once ".././models/news.model.php";
 class NewsController{
     private $newsController;
     public function __construct(){
@@ -22,7 +23,7 @@ class NewsController{
     }
 }
 $newsCtr = new NewsController();
-$_POST = json_decode(file_get_contents("php://input"),true);
+$_POST = json_decode(file_get_contents('php://input'), true);
 if(isset($_GET['action'])){
     switch($_GET['action']){
         case 0: //get all news
