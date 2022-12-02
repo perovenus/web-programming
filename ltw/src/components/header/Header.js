@@ -13,8 +13,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 export default function Header() {
-  // var loginStat = false;
-  // var admin = false;
   const [loginStat, setLoginStat] = useState(false);
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
@@ -40,10 +38,6 @@ export default function Header() {
     navigate("/user-info");
   };
   const goToLogin = () => {
-<<<<<<< Updated upstream
-    navigate("/login")
-  }
-=======
     navigate("/login");
   };
   const LogOut = () => {
@@ -58,7 +52,6 @@ export default function Header() {
   const goToManageNews = () => {
     navigate("/manage-news");
   };
->>>>>>> Stashed changes
   const goToManageProducts = () => {
     navigate("/manage-products");
   };
@@ -134,37 +127,6 @@ export default function Header() {
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-<<<<<<< Updated upstream
-                {
-                  admin ?
-                    <div class="nav-link" type="button" id="shopping-cart">
-                      <div class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" aria-aria-expanded="false">
-                        <p style={{ fontSize: '16px' }}>Quản lý</p>
-                        <FontAwesomeIcon style={{marginLeft: '5px'}} icon={faChevronDown} size="xs" />
-                      </div>
-                      <ul class="dropdown-menu" id="manage-menu">
-                        <li class="dropdown-item">
-                          <p>Quản lý tin tức</p>
-                        </li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li class="dropdown-item" onClick={goToManageProducts}>
-                          <p>Quản lý sản phẩm</p>
-                        </li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li class="dropdown-item">
-                          <p>Quản lý đơn hàng</p>
-                        </li>
-                      </ul>
-                    </div> :
-                    <div class="nav-link d-flex" type="button" id="shopping-cart">
-                      <div class="nav-link" onClick={goToCart}>
-                        <FontAwesomeIcon icon={faCartShopping} size="xl" />
-                      </div>
-                      <div id="your-cart">
-                        <p>Giỏ hàng của bạn</p>
-                        <p>(0) sản phẩm</p>
-                      </div>
-=======
                 {admin ? (
                   <div class="nav-link" type="button" id="shopping-cart">
                     <div
@@ -201,7 +163,6 @@ export default function Header() {
                   <div class="nav-link d-flex" type="button" id="shopping-cart">
                     <div class="nav-link" onClick={goToCart}>
                       <FontAwesomeIcon icon={faCartShopping} size="xl" />
->>>>>>> Stashed changes
                     </div>
                     <div id="your-cart">
                       <p>Giỏ hàng của bạn</p>
