@@ -30,7 +30,6 @@ export default function ManageProductDetail() {
       .then((res) => {
         setProduct(res.data[0]);
         setSpecifications(JSON.parse(res.data[0].attribute))
-        console.log(JSON.parse(res.data[0].attribute))
       })
       .catch((err) => {
         console.log(err);

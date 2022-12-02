@@ -1,6 +1,8 @@
 import React from 'react'
 import './AddNewProduct.css'
 import { useState, useRef } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddNewProduct() {
   const [name, setName] = useState("")
@@ -55,6 +57,76 @@ export default function AddNewProduct() {
   const [accessoryColor, setAccessoryColor] = useState("")
   const [accessoryType, setAccessoryType] = useState("")
   const [accesssoryConnect, setAccessoryConnect] = useState("")
+
+  const navigate = useNavigate()
+
+  const goBack = () => {
+    navigate(-1)
+  }
+
+  const addProduct = () => {
+
+    let attr = 
+      type == 1 ? {
+        series: laptopSeries,
+        partnum: laptopPartNum,
+        color: laptopColor,
+        demand: laptopDemand,
+        cpugen: laptopCpuGen,
+        cpu: laptopCpu,
+        gpu: laptopGpu,
+        ram: laptopRam,
+        screen: laptopScreen,
+        storage: laptopStorage,
+        keyboard: laptopKeyboard,
+        os: laptopOS,
+        pin: laptopPin,
+        weight: laptopWeight
+      } : type == 2 ? {
+        partnum: pcPartNum,
+        color: pcColor,
+        cpuseries: pcCpuSeries,
+        cpugen: pcCpuGen,
+        cpu: pcCpu,
+        gpu: pcGpu,
+        ram: pcRam,
+        storage: pcStorage,
+        os: pcOS
+      } : type == 3 ? {
+        series: phoneSeries,
+        color: phoneColor,
+        screen: phoneScreen,
+        rom: phoneRom,
+        os: phoneOS,
+        ram: phoneRam,
+        pin: phonePin,
+        frontcam: phoneFrontCam,
+        backcam: phoneBackCam,
+        weight: phoneWeight
+      } : {
+        demand: accessoryDemand,
+        color: accessoryColor,
+        type: accessoryType,
+        connect: accesssoryConnect 
+      }
+
+    axios.post("http://localhost/controllers/products.controller.php", {
+      action: 4,
+      brand: brand,
+      warranty: warranty,
+      price: price,
+      name: name,
+      description: description,
+      thumbnail: imgURL,
+      type: type,
+      attribute: attr
+    }).then((res) => {
+      alert(res.data)
+      // goBack()
+    }).catch((err) => {
+      alert(err.data)
+    })
+  }
 
   return (
     <div class="body" style={{ paddingTop: '100px' }}>
@@ -571,6 +643,7 @@ export default function AddNewProduct() {
           </div>
           <div class="d-flex justify-content-center">
             <button
+              onClick={addProduct}
               type="button" class="btn btn-primary"
               style={{ width: '120px', height: '45px', alignSelf: 'center' }}
             >Xác nhận</button>

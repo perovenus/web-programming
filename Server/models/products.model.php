@@ -68,7 +68,17 @@ class ProductsModel{
         }
     }
     public function addProducts($info){
-        $sql = "INSERT INTO product (title, price, description, thumbnail, category_id, attr) VALUES ('".$info['title']."', '".$info['price']."', '".$info['description']."', '".$info['thumbnail']."', '".$info['category']."', '".$info['attribute']."')";
+        $brand = $info['brand'];
+        $warranty = $info['warranty'];
+        $price = $info['price'];
+        $name = $info['name'];
+        $description = $info['description'];
+        $thumbnail = $info['thumbnail'];
+        $type = $info['type'];
+        $attribute = json_encode($info['attribute']);
+        $get_max_id = $this->productstable->query("SELECT MAX(id) FROM product");
+        $id = $get_max_id->fetch_assoc()['MAX(id)'] + 1;
+        $sql = "INSERT INTO product (id, brand, warranty, price, name, description, thumbnail, type, attr) VALUES ('$id', '$brand', '$warranty', '$price', '$name', '$description', '$thumbnail', '$type', '$attribute')";
         $result = $this->productstable->query($sql);
         if($result){
             echo "Add successfully";

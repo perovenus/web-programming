@@ -22,6 +22,7 @@ class ProductsController{
     }
 }
 $prsCtr = new ProductsController();
+$_POST = json_decode(file_get_contents("php://input"),true);
 if(isset($_GET['action'])){
     switch($_GET['action']){
         case '0': //get all products
@@ -33,6 +34,14 @@ if(isset($_GET['action'])){
         case '2': //delete product by id
             $prsCtr->delProductsById($_GET['id']);
             break;
+        default:
+            echo "action:\n 0 get all elements,\n 1 - get element by id,\n 2 - delete element by id,\n 3 - edit element by info, \n 4 - add element by info";
+            break;
+    }
+}
+
+if(isset($_POST['action'])) {
+    switch($_POST['action']) {
         case '3': //edit product by id
             $info = [
                 'id' => $_POST['id'],
@@ -47,11 +56,13 @@ if(isset($_GET['action'])){
             break;
         case '4': //add product
             $info = [
-                'title' => $_POST['title'],
+                'name' => $_POST['name'],
+                'brand' => $_POST['brand'],
                 'price' => $_POST['price'],
+                'warranty' => $_POST['warranty'],
                 'description' => $_POST['description'],
                 'thumbnail' => $_POST['thumbnail'],
-                'category' => $_POST['category'],
+                'type' => $_POST['type'],
                 'attribute' => $_POST['attribute'],
             ];
             $prsCtr->addProducts($info);
