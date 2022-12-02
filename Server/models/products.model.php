@@ -75,7 +75,7 @@ class ProductsModel{
         $description = $info['description'];
         $thumbnail = $info['thumbnail'];
         $type = $info['type'];
-        $attribute = json_encode($info['attribute']);
+        $attribute = $info['attribute'];
         $get_max_id = $this->productstable->query("SELECT MAX(id) FROM product");
         $id = $get_max_id->fetch_assoc()['MAX(id)'] + 1;
         $sql = "INSERT INTO product (id, brand, warranty, price, name, description, thumbnail, type, attr) VALUES ('$id', '$brand', '$warranty', '$price', '$name', '$description', '$thumbnail', '$type', '$attribute')";
