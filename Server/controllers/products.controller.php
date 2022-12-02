@@ -1,4 +1,5 @@
 <?php
+include_once ".././models/db.model.php";
 include_once '.././models/products.model.php';
 class ProductsController{
     private $productsModel;

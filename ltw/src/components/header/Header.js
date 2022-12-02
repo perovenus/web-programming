@@ -1,32 +1,27 @@
-import React from 'react';
-import './Header.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import "./Header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faArrowRightFromBracket,
   faUnlock,
-  faChevronDown
-} from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
-
+  faChevronDown,
+  faAnkh,
+} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 export default function Header() {
-
-  var loginStat = false;
-  var admin = true;
-
+  const [loginStat, setLoginStat] = useState(false);
+  const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
   const goToCart = () => {
     navigate("/cart");
   };
   const goToAbout = () => {
-    navigate("/about")
-  }
+    navigate("/about");
+  };
   const goToNews = () => {
     navigate("/news");
   };
@@ -34,24 +29,44 @@ export default function Header() {
     navigate("/");
   };
   const goToProducts = () => {
-    navigate("/products")
-  }
+    navigate("/products");
+  };
   const goToContact = () => {
-    navigate("/contact")
-  }
+    navigate("/contact");
+  };
   const goToUserInfo = () => {
-    navigate("/user-info")
-  }
+    navigate("/user-info");
+  };
   const goToLogin = () => {
-    navigate("/login")
-  }
+    navigate("/login");
+  };
+  const LogOut = () => {
+    document.cookie = `username=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
+    document.cookie = `admin=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
+    document.cookie = `loginStat=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
+    setLoginStat(false);
+    setAdmin(false);
+    navigate("/login");
+  };
+
   const goToManageNews = () => {
-    navigate("/manage-news")
-  }
+    navigate("/manage-news");
+  };
   const goToManageProducts = () => {
-    navigate("/manage-products")
-  } 
-  
+    navigate("/manage-products");
+  };
+  useEffect(() => {
+    const listCookies = document.cookie.split(";");
+    listCookies.map((item) => {
+      const i = item.split("=");
+      if (i[0] === " loginStat") {
+        setLoginStat(i[1]);
+      }
+      if (i[0] === " admin") {
+        setAdmin(i[1] == 1);
+      }
+    });
+  });
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -112,90 +127,130 @@ export default function Header() {
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                {
-                  admin ?
-                    <div class="nav-link" type="button" id="shopping-cart">
-                      <div class="nav-link d-flex align-items-center" data-bs-toggle="dropdown" aria-aria-expanded="false">
-                        <p style={{ fontSize: '16px' }}>Quản lý</p>
-                        <FontAwesomeIcon style={{marginLeft: '5px'}} icon={faChevronDown} size="xs" />
-                      </div>
-                      <ul class="dropdown-menu" id="manage-menu">
-                        <li class="dropdown-item" onClick={goToManageNews}>
-                          <p>Quản lý tin tức</p>
-                        </li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li class="dropdown-item" onClick={goToManageProducts}>
-                          <p>Quản lý sản phẩm</p>
-                        </li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li class="dropdown-item">
-                          <p>Quản lý đơn hàng</p>
-                        </li>
-                      </ul>
-                    </div> :
-                    <div class="nav-link d-flex" type="button" id="shopping-cart">
-                      <div class="nav-link" onClick={goToCart}>
-                        <FontAwesomeIcon icon={faCartShopping} size="xl" />
-                      </div>
-                      <div id="your-cart">
-                        <p>Giỏ hàng của bạn</p>
-                        <p>(0) sản phẩm</p>
-                      </div>
+                {admin ? (
+                  <div class="nav-link" type="button" id="shopping-cart">
+                    <div
+                      class="nav-link d-flex align-items-center"
+                      data-bs-toggle="dropdown"
+                      aria-aria-expanded="false"
+                    >
+                      <p style={{ fontSize: "16px" }}>Quản lý</p>
+                      <FontAwesomeIcon
+                        style={{ marginLeft: "5px" }}
+                        icon={faChevronDown}
+                        size="xs"
+                      />
                     </div>
-                }
+                    <ul class="dropdown-menu" id="manage-menu">
+                      <li class="dropdown-item" onClick={goToManageNews}>
+                        <p>Quản lý tin tức</p>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li class="dropdown-item" onClick={goToManageProducts}>
+                        <p>Quản lý sản phẩm</p>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li class="dropdown-item">
+                        <p>Quản lý đơn hàng</p>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div class="nav-link d-flex" type="button" id="shopping-cart">
+                    <div class="nav-link" onClick={goToCart}>
+                      <FontAwesomeIcon icon={faCartShopping} size="xl" />
+                    </div>
+                    <div id="your-cart">
+                      <p>Giỏ hàng của bạn</p>
+                      <p>(0) sản phẩm</p>
+                    </div>
+                  </div>
+                )}
               </li>
               <li class="nav-item">
                 <div class="nav-link">
-                  {
-                    loginStat ?
-                      <>
-                        <img class="rounded-circle shadow-1-strong" data-bs-toggle="dropdown" aria-aria-expanded="false"
-                          src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
-                          height="40" />
-                        <ul class="dropdown-menu" id="user-menu">
-                          <li style={{ marginBottom: '15px' }}>
-                            <div style={{ display: 'flex', padding: '0 10px' }}>
-                              <img class="shadow-1-strong"
-                                src={require('../../assets/images/cute_vl.jpg')}
-                                alt="avatar"
-                                width="45"
-                                height="45" />
-                              <div style={{ marginLeft: '10px' }}>
-                                <strong>Hưng Lê</strong>
-                                <p style={{
-                                  overflow: 'hidden',
-                                  whiteSpace: 'nowrap',
-                                  textOverflow: 'ellipsis',
-                                  width: '170px'
-                                }}>medfancy0@gmail.com</p>
-                              </div>
+                  {loginStat ? (
+                    <>
+                      <img
+                        class="rounded-circle shadow-1-strong"
+                        data-bs-toggle="dropdown"
+                        aria-aria-expanded="false"
+                        src={require("../../assets/images/cute_vl.jpg")}
+                        alt="avatar"
+                        width="40"
+                        height="40"
+                      />
+                      <ul class="dropdown-menu" id="user-menu">
+                        <li style={{ marginBottom: "15px" }}>
+                          <div style={{ display: "flex", padding: "0 10px" }}>
+                            <img
+                              class="shadow-1-strong"
+                              src={require("../../assets/images/cute_vl.jpg")}
+                              alt="avatar"
+                              width="45"
+                              height="45"
+                            />
+                            <div style={{ marginLeft: "10px" }}>
+                              <strong>Hưng Lê</strong>
+                              <p
+                                style={{
+                                  overflow: "hidden",
+                                  whiteSpace: "nowrap",
+                                  textOverflow: "ellipsis",
+                                  width: "170px",
+                                }}
+                              >
+                                medfancy0@gmail.com
+                              </p>
                             </div>
-                          </li>
-                          <li class="dropdown-item" type="button" style={{ marginBottom: '15px' }}>
-                            <div style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              paddingLeft: '27px'
+                          </div>
+                        </li>
+                        <li
+                          class="dropdown-item"
+                          type="button"
+                          style={{ marginBottom: "15px" }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              paddingLeft: "27px",
                             }}
-                              onClick={goToUserInfo}
-                            >
-                              <FontAwesomeIcon icon={faUser} size="md" />
-                              <p style={{ marginLeft: '10px' }}>Thông tin tài khoản</p>
-                            </div>
-                          </li>
-                          <li class="dropdown-item sign-out-btn" type="button">
-                            <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '27px' }}>
-                              <FontAwesomeIcon icon={faArrowRightFromBracket} size="md" />
-                              <p style={{ marginLeft: '10px' }}>Đăng xuất</p>
-                            </div>
-                          </li>
-                        </ul>
-                      </>
-                      :
-                      <div id="user-icon" type="button" onClick={goToLogin}>
-                        <FontAwesomeIcon icon={faUser} size="md" />
-                      </div>
-                  }
+                            onClick={goToUserInfo}
+                          >
+                            <FontAwesomeIcon icon={faUser} size="md" />
+                            <p style={{ marginLeft: "10px" }}>
+                              Thông tin tài khoản
+                            </p>
+                          </div>
+                        </li>
+                        <li class="dropdown-item sign-out-btn" type="button">
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              paddingLeft: "27px",
+                            }}
+                            onClick={LogOut}
+                          >
+                            <FontAwesomeIcon
+                              icon={faArrowRightFromBracket}
+                              size="md"
+                            />
+                            <p style={{ marginLeft: "10px" }}>Đăng xuất</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </>
+                  ) : (
+                    <div id="user-icon" type="button" onClick={goToLogin}>
+                      <FontAwesomeIcon icon={faUser} size="md" />
+                    </div>
+                  )}
                 </div>
               </li>
             </ul>
