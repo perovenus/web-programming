@@ -1,23 +1,28 @@
 import React from "react";
 import "./About.css";
+import logo from '../../assets/images/logo.png'
+
 
 export default function About() {
   return (
     <div class="body" style={{ backgroundColor: "#ffffff" }}>
       <div class="container" id="container-custom">
-        <h1>Giới thiệu "BKTECH"</h1>
+        <h1>Giới thiệu BKTECH</h1>
         <h3 class="mt-5">Tổ chức</h3>
-        <h5 class="mt-4">Công Ty Cổ Phần Thương Mại Dịch Vụ ""</h5>
+        <h5 class="mt-4">Công Ty Cổ Phần Thương Mại Dịch Vụ BKTECH</h5>
+        <div class="d-flex justify-content-center mb-5 mt-5">
+          <img src={logo} width="200px"/>
+        </div>
         <ul>
           <li>
             Xuất thân từ cửa hàng kinh doanh máy tính được thành lập từ năm
-            1997, "" được biết đến là đơn vị bán lẻ lâu đời và uy tín tại Việt
-            Nam. Phong Vũ chuyên kinh doanh các sản phẩm công nghệ thông tin,
+            1997, BKTECH được biết đến là đơn vị bán lẻ lâu đời và uy tín tại Việt
+            Nam. Chúng tôi chuyên kinh doanh các sản phẩm công nghệ thông tin,
             thiết bị giải trí game, thiết bị văn phòng và thiết bị hi-tech của
             nhiều nhãn hàng lớn như Dell, Asus, HP, MSI, Lenovo…
           </li>
           <li>
-            Sau 23 năm phát triển không ngừng, Phong Vũ hướng đến mục tiêu không
+            Sau 23 năm phát triển không ngừng, BKTECH hướng đến mục tiêu không
             chỉ là nơi kinh doanh máy tính mà còn là nơi khách hàng có thể tìm
             thấy mọi tiện ích công nghệ hiện đại và dịch vụ chất lượng cao.
           </li>
@@ -42,7 +47,7 @@ export default function About() {
             Ventures đang đầu tư mạnh mẽ vào các lĩnh vực: Fintech, New Retail,
             Logistics, Warehouse, Digital Entertainment, B2B Management
             Solution. Các đơn vị thành viên Teko bao gồm: Công ty Cổ phần Thương
-            mại Dich vụ Phong Vũ, Tripi Việt Nam, Jupviec.vn, Pos365.vn,
+            mại Dich vụ BKTECH, Tripi Việt Nam, Jupviec.vn, Pos365.vn,
             Sapo.vn, VNPAY, Umbala, Công ty Đầu tư và Thương mại VVM,
             Tenpoint7.vn. Các công ty này đều là đơn vị lâu đời trong lĩnh vực
             bán lẻ thiết bị điện tử, tin học, là nhà tiên phong trong lĩnh vực
@@ -70,22 +75,18 @@ export default function About() {
           width="100%"
         />
         <h3 class="mt-5">Hành trình phát triển</h3>
-        <img
-          src="https://3428203472-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-M47Mjlovb1o8n1BkFz7%2F-ME7J6cY2Pp5n9qlktMA%2F-ME7KrHLdyhk86_mzjdn%2FH%C3%ACnh-th%C3%A0nh-v%C3%A0-ph%C3%A1t-tri%E1%BB%83n.jpg?alt=media&token=44f2a9d0-5520-4e4e-bdcc-a73b3a53499d"
-          width="100%"
-        />
         <ul>
           <li>
             1997: Bắt đầu từ một cửa hàng nhỏ bán lắp ráp phần cứng máy tính &
             PC tại TP HCM.
           </li>
           <li>2000: Khai trương trung tâm dịch vụ hàng đầu tại TP.HCM</li>
-          <li>2007: Công ty Thương mại & Dịch vụ "" được thành lập.</li>
+          <li>2007: Công ty Thương mại & Dịch vụ BKTECH được thành lập.</li>
           <li>2013: Khai trương showroom tại Bình Dương</li>
           <li>2015: Mở Showroom ngoài khu vực TP.HCM</li>
           <li>2017: 5 showroom mới được mở tại TP.HCM</li>
           <li>
-            2018: Phong Vũ và Teko hợp tác, mở hơn 30 showroom tại Việt Nam.
+            2018: BKTECH và Teko hợp tác, mở hơn 30 showroom tại Việt Nam.
           </li>
           <li>
             2019: Tập trung phát triển các chuỗi cửa hàng và chuẩn bị cho một
@@ -94,7 +95,7 @@ export default function About() {
           <li>2020: Sẵn sàng cho tương lai mới phát triển mạnh mẽ.</li>
           <li>
             4/7/2020: Khai Trương cửa hàng tại số 2 Hoàng Hoa Thám quận Tân Bình
-            mở đầu cho chuỗi cửa hàng Phong Vũ phong cách mới!
+            mở đầu cho chuỗi cửa hàng BKTECH phong cách mới!
           </li>
         </ul>
         <h3 class="mt-5">Lĩnh vực kinh doanh</h3>
@@ -104,7 +105,7 @@ export default function About() {
         />
         <ul>
           <li>
-            "" cung cấp đầy đủ các sản phẩm máy tính, thiết bị công nghệ thông
+            BKTECH cung cấp đầy đủ các sản phẩm máy tính, thiết bị công nghệ thông
             tin & hi-end cho người dùng gia đình
           </li>
           <li>
@@ -116,7 +117,7 @@ export default function About() {
             màn hình kỹ thuật số, hệ thống quản lý thanh toán,…
           </li>
           <li>
-            Thêm sự lựa chọn, Phong Vũ mở rộng ngành hàng như các thiết bị điện
+            Thêm sự lựa chọn, BKTECH mở rộng ngành hàng như các thiết bị điện
             tử tiêu dùng, thiết bị gia dụng và thiết bị thông minh.
           </li>
           <li>
@@ -140,12 +141,12 @@ export default function About() {
         />
         <ul>
           <li>
-            Bằng những nỗ lực không mệt mỏi, Phong Vũ tự hào là nhà bán lẻ thiết
+            Bằng những nỗ lực không mệt mỏi, BKTECH tự hào là nhà bán lẻ thiết
             bị công nghệ cao được khách hàng và các đối tác tin tưởng và yêu
             mến. Đó là giải thưởng và niềm tự hào vô giá của chúng tôi.
           </li>
           <li>
-            Suốt 23 năm qua, "" liên tiếp được ghi nhận:
+            Suốt 23 năm qua, BKTECH liên tiếp được ghi nhận:
             <ul>
               <li>Top 10 nhà bán lẻ ICT tại Việt Nam (ICT Associate, HCMC)</li>
               <li>
@@ -161,10 +162,6 @@ export default function About() {
           </li>
         </ul>
         <h3 class="mt-5">Con người</h3>
-        <img
-          src="https://3428203472-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-M47Mjlovb1o8n1BkFz7%2F-ME7J6cY2Pp5n9qlktMA%2F-ME7M7sc7xfiF8twPaUG%2Fcon-ng%C6%B0%E1%BB%9Di.jpg?alt=media&token=6ccce9f5-6c56-454d-9904-d8b942db2762"
-          width="100%"
-        />
         <table class="human-resources mt-4">
           <tr>
             <th>Hướng đến khách hàng</th>
@@ -175,7 +172,7 @@ export default function About() {
           <tr>
             <td>
               Được phục vụ và mang đến sự hài lòng cho khách hàng là mục tiêu
-              hàng đầu của Nhân viên Phong Vũ
+              hàng đầu của Nhân viên BKTECH
             </td>
             <td>
               Tận tụy với khách hàng, tận tâm với nhân viên là cách chúng tôi
@@ -193,7 +190,7 @@ export default function About() {
         <h5 class="mt-4">Tin Tưởng Và Cống Hiến Tận Tâm</h5>
         <p>
           Tương lai được kiến tạo từ những việc bạn làm hôm nay chứ không phải
-          ngày mai, hãy gia nhập đại gia đình Phong Vũ và cùng nhau tạo nên
+          ngày mai, hãy gia nhập đại gia đình BKTECH và cùng nhau tạo nên
           những giá trị tự hào!
         </p>
       </div>

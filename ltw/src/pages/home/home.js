@@ -40,8 +40,8 @@ function Home() {
       <Banner images={images} />
       <div className="col" id="home-body">
         <div className="row" id="home-content">
-          <OwlCarousel data={news} title={"Tin mới"} />
-          <OwlCarousel data={products} title={"Sản phẩm bán chạy"} />
+          <OwlCarousel data={news} type="news" title={"Tin mới"} />
+          <OwlCarousel data={products} type="product" title={"Sản phẩm bán chạy"} />
         </div>
       </div>
     </div>

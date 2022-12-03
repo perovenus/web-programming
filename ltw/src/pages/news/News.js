@@ -79,6 +79,7 @@ export default function News() {
         <div class="row g-1 news-list">
           {news.map((item) => (
             <Card
+              type="news"
               image={item["image"]}
               title={item["title"]}
               time_up={item["time_up"]}

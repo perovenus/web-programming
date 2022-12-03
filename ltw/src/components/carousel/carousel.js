@@ -23,16 +23,31 @@ function OwlCarousel(props) {
   };
   return (
     <div id="main-carousel">
-      <div>
+      <div class="mb-3">
         <h4>{props.title}</h4>
       </div>
       <Carousel responsive={responsive} draggable={false}>
         {props.data.map((item) => {
           return (
-            <Item
-              image={item.image}
-              title={item.title === undefined ? item.name : item.title}
-            />
+            props.type == "news" ?
+              <Item
+                type="news"
+                image={item.image}
+                title={item.title}
+                time_up={item.time_up}
+                content={item.content}
+                id={item.id}
+                key={item.id}
+
+              /> :
+              <Item
+                type="product"
+                image={item.image}
+                name={item.name}
+                id={item.id}
+                price={item.price}
+                key={item.id}
+              />
           );
         })}
       </Carousel>
