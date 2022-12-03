@@ -29,6 +29,8 @@ function App() {
     <Layout>
       <Routes path="/">
         <Route index element={<Home />} />
+        <Route path="news-detail" element={<NewsDetail />} />
+        <Route path="product-detail" element={<ProductDetail />} />
         <Route path="news">
           <Route index element={<News />} />
           <Route path="*" element={<NewsDetail />} />
@@ -40,7 +42,6 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="user-info" element={<UserInfo />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="product-detail" element={<ProductDetail />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

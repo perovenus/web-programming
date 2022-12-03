@@ -8,7 +8,7 @@ export default function Contact() {
         <div className="section-title">
           <h2>Thông tin liên hệ</h2>
 
-          <h3>Công ty TNHH PINE@APPLE</h3>
+          <h3>Công Ty Cổ Phần Thương Mại Dịch Vụ BKTECH</h3>
         </div>
         <div className="row">
           <div className="col-xs-12 col-lg-6">
