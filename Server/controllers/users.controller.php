@@ -18,7 +18,9 @@ class UserController {
     public function addUser($info){
         $this->userModel->addUser($info);
     }
-
+    public function checkrole($username){
+        $this->userModel->checkrole($username);
+    }
 }
 
 $usrCtr = new UserController();
@@ -30,18 +32,17 @@ if(isset($_POST['action'])){
             break;
         case 1:
             $info = $usrCtr->getUserByUserName($_POST['username']);
-            if($info == null){
-                echo "fail";
+            if($info === null){
+                echo "User not found";
             }
             else{
                 $password = $info[0]['password'];
                 if($password == $_POST['password']){
-                    $_SESSION['username'] = $_POST['username'];
-                    $_SESSION['role'] = $info[0]['role'];
-                    echo json_encode(["username" => $info[0]['username'], "role" => $info[0]['role']]);
+    
+                    echo json_encode(["username" =>hash('sha256',$info[0]['username']), "role" => $info[0]['role']]);
                 }
                 else{
-                    echo "fail";
+                    echo "Password is incorrect";
                 }
             }
             break;
@@ -51,6 +52,9 @@ if(isset($_POST['action'])){
         case 3:
             $usrCtr->addUser($_POST['info']);
             break;
-    }
+        case 4:
+            $usrCtr->checkrole($_POST['username']);
+            break;  
+    }   
 }
 ?>

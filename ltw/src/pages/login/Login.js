@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import { json, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 export default function Login() {
@@ -21,16 +21,12 @@ export default function Login() {
       })
       .then((res) => {
         if (res.data) {
-          let data = res.data;
-          let username = data.username;
-          let admin = data.role;
-          let loginStat = true;
-          //save cookie
-          document.cookie = `username=${username}; expires=Thu, 18 Dec 2022 12:00:00 UTC; path=/`;
-          document.cookie = `admin=${admin}; expires=Thu, 18 Dec 2022 12:00:00 UTC; path=/`;
-          document.cookie = `loginStat=${loginStat}; expires=Thu, 18 Dec 2022 12:00:00 UTC; path=/`;
-
-          navigate("/");
+          let username = sessionStorage.getItem("username");
+          if (username === null) {
+            sessionStorage.setItem("username", res.data.username);
+            sessionStorage.setItem("loginStat", true);
+            navigate("/");
+          }
         } else {
           console.log(res.data);
           setErr("Invalid username or password");

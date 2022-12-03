@@ -34,7 +34,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`ID`, `title`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `category` (`ID`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -60,7 +60,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -73,7 +73,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`ID`, `title`, `content`, `thumbnail`, `type`, `time_up`) VALUES
@@ -101,12 +101,12 @@ INSERT INTO `news` (`ID`, `title`, `content`, `thumbnail`, `type`, `time_up`) VA
 (22, 'Review tai nghe Logitech G435: tai nghe không dây siêu nhẹ,dưới 2 triệu', 'Logitech, hãng phụ kiện các thiết bị vi tính đã quá quen thuộc với các anh em đam mê công nghệ trên toàn thế giới với những sản phẩm nổi tiếng là bền bỉ và thiết kế đẹp mắt. Tiếp tục truyền thống của mình, chiếc tai nghe Logitech G435 với trọng lượng siêu nhẹ và thiết kế vô cùng bắt mắt là một mẫu tai nghe gaming rất đa dụng thích hợp cho cả những nhu cầu chơi game và sử dụng hằng ngày.\r\n\r\nVậy hãy cùng mình đánh giá chi tiết chiếc Tai nghe không dây Logitech G435 này để xem nó có xứng đáng với danh xưng tai nghe “dân chơi” thứ thiệt dành cho giới trẻ hay không nhé! ', 'https://phongvu.vn/cong-nghe/wp-content/uploads/sites/2/2022/11/tai-nghe-logitech-g435-300x300.jpg', 2, '2022-11-15'),
 (23, 'iOS 16.2: dự kiến ra mắt tháng 12 với 8 tính năng mới', 'Sau khi bản cập nhật iOS 16 và 16.1 ra mắt, phiên bản iOS 16.2 sắp tới của Apple dự kiến sẽ ra mắt chính thức vào tháng 12 với 8 tính năng mới đáng chú ý. Trong đó việc thêm tùy chọn cho AOD (Always-on Display) được nhiều anh em nói vui là học theo Android cho những tùy chọn mới. Tính năng nào cũng được, miễn là có lợi cho người dùng và anh em thích là được, theo dõi thêm những thông tin cập nhật mới nhé.', 'https://phongvu.vn/cong-nghe/wp-content/uploads/sites/2/2022/11/iOS-16-2-300x300.jpeg', 3, '2022-11-15'),
 (24, 'Logo Apple phát sáng có thể trở lại trên MacBook 2023 ?', 'Theo một vài thông tin về việc Apple đã đăng ký bằng sáng chế cho một tấm gương phản chiếu có đèn nền vào tháng 5.2022 và nó được cho là có thể sẽ dùng để làm Logo quả táo. Tuy nó vẫn có thể sử dụng để làm ra một cấu trúc khác trong máy tuy nhiên tin đồn này cũng khiến những iFans cảm thấy thích thú.\r\n\r\nRất có thể những chiếc Macbook trong tương lai sẽ được trang bị logo quả táo với lớp phủ bằng gương và đèn nền phát sáng ở phía dưới, làm hồi sinh biểu tượng của những chiếc Macbook một thời. Không loại trừ khả năng Apple có thể tích hợp thêm nhiều tính năng mới, như sử dụng đèn nền của logo để thông báo khi có tin nhắn.\r\n\r\nHẳn nếu không phải fan táo thì anh em sẽ chẳng thể hiểu nổi việc nhiều người đang nói về một tính năng “logo sáng đèn” cũ kỹ và sắp đem ra “nhai lại”. Nhưng kể từ khi Apple ngừng làm một quả táo phát sáng từ năm 2015 đã có nhiều người tiếc nuối và luôn mong ngóng ngày nó trở lại.', 'https://phongvu.vn/cong-nghe/wp-content/uploads/sites/2/2022/11/Macbook-300x300.jpg', 4, '2022-11-15'),
-(25, 'Telegram cập nhật nhiều tính năng mới cho tài khoản trả phí và miễn phí', 'Nếu xét về khía cạnh ứng dụng nhắn tin mã hóa bảo mật cao thì dường như Telegram không có bất cứ một đối nào dù phải chịu sự cạnh tranh khốc liệt từ Meta với Messenger, Apple với iMessage, hay Viber,…\r\n\r\nXuất phát điểm là một ứng dụng nhắn tin miễn phí nhưng vào tháng 6 năm nay thì Telegram cũng đã chính thức tung ra một phiên bản trả trí Premium với nhiều tính năng độc quyền. Không chỉ tập trung vào gói Premium, với các tài khoản miễn phí thì ứng dụng nhắn tin này cũng liên tục cập nhật cho họ những tính năng mới song song với các tài khoản Premium. ', 'https://phongvu.vn/cong-nghe/wp-content/uploads/sites/2/2022/11/telegram-la-gi-300x300.png', 1, '2022-11-15');
+(25, 'này là để test nè', 'Nếu xét về khía cạnh ứng dụng nhắn tin mã hóa bảo mật cao thì dường như Telegram không có bất cứ một đối nào dù phải chịu sự cạnh tranh khốc liệt từ Meta với Messenger, Apple với iMessage, hay Viber,…\r\n\r\nXuất phát điểm là một ứng dụng nhắn tin miễn phí nhưng vào tháng 6 năm nay thì Telegram cũng đã chính thức tung ra một phiên bản trả trí Premium với nhiều tính năng độc quyền. Không chỉ tập trung vào gói Premium, với các tài khoản miễn phí thì ứng dụng nhắn tin này cũng liên tục cập nhật cho họ những tính năng mới song song với các tài khoản Premium. ', 'https://phongvu.vn/cong-nghe/wp-content/uploads/sites/2/2022/11/telegram-la-gi-300x300.png', 1, '2022-11-15');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -114,43 +114,32 @@ CREATE TABLE `order` (
   `order_date` date NOT NULL,
   `status` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `total_cash` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `order`
+-- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`ID`, `order_date`, `status`, `total_cash`, `user_id`) VALUES
-(1, '2022-11-15', 'Chưa thanh toán', 20900000, 5),
-(2, '2022-11-15', 'Chưa thanh toán', 20900000, 5),
-(3, '2022-11-15', 'Chưa thanh toán', 20900000, 5);
+INSERT INTO `order` (`ID`, `order_date`, `status`, `total_cash`, `user_id`, `product_id`, `quantity`) VALUES
+(1, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 16, 1),
+(2, '2022-11-15', 'Chưa thanh toán', 20890002, 3, 3, 1),
+(3, '2022-11-15', 'Chưa thanh toán', 20900000, 3, 11, 1);
+
+--
+-- Triggers `order`
+--
+DELIMITER $$
+CREATE TRIGGER `updatetotal` BEFORE UPDATE ON `order` FOR EACH ROW SET NEW.`total_cash` = 	NEW.`quantity` * (SELECT  `price` FROM `product` WHERE NEW.`product_id` = `product`.`id`)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order_product`
---
-
-CREATE TABLE `order_product` (
-  `quantity` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Đang đổ dữ liệu cho bảng `order_product`
---
-
-INSERT INTO `order_product` (`quantity`, `order_id`, `product_id`) VALUES
-(5, 1, 16),
-(1, 2, 3),
-(2, 3, 11);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -166,11 +155,11 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `brand`, `warranty`, `price`, `name`, `description`, `thumbnail`, `type`, `attr`) VALUES
-(1, 'HP', '12 tháng', 20890000, 'Laptop HP VICTUS 16-e0168AX (Ryzen 7 5800H/RAM 8GB/512GB SSD/ Windows 11)', 'Laptop HP VICTUS 16-e0168AX (4R0U6PA) sở hữu cấu hình mạnh mẽ, đáp ứng nhu cầu hiệu năng cao trong công việc và giải trí của nhiều người dùng. Nằm ở phân khúc cao cấp, chiếc laptop HP hứa hẹn sẽ mang đến cho bạn những trải nghiệm mượt mà ấn tượng, xứng đáng với sự đầu tư.', 'https://lh3.googleusercontent.com/7hF1me96OMiRq6Faqy5OoA9oyDFpDCDioWS5aBJuWmtPVH4MUAgN2DG_bKoRG5tn21y9vDl7qRZQTBg0spHB1IRI6tebA7Ee=w1000-rw', 1, '{\"series\":  \"TUF Gaming\",\"partnum\": \"90NR09L3-M00510\",\"color\": \"Đen\",\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"cpugen\": \"Core i5 , Intel Core thế hệ thứ 12\",\"cpu\": \"Intel Core i5-12450H ( 2.0 GHz - 4.4GHz / 12MB / 8 nhân, 12 luồng ) i5-12450H\",\"gpu\": \"NVIDIA GeForce RTX 3060 6GB GDDR6\",\"ram\": \"16GB DDR4 3200MHz\",\"screen\": \"15.6inch IPS(1920 x 1080), 144Hz\",\"storage\": \"512GB SSD\",\"os\": \"Windows 10 Home\",\"keyboard\": \"Backlit Keyboard\",\"pin\": \"3 Cell 51Wh\",\"weight\": \"2.2kg\"}\r\n'),
+(1, 'HP', '12 tháng', 20890000, 'Laptop HP VICTUS 16-e0168AX (Ryzen 7 5800H/RAM 8GB/512GB SSD/ Windows 11)', 'Laptop HP VICTUS 16-e0168AX (4R0U6PA) sở hữu cấu hình mạnh mẽ, đáp ứng nhu cầu hiệu năng cao trong công việc và giải trí của nhiều người dùng. Nằm ở phân khúc cao cấp, chiếc laptop HP hứa hẹn sẽ mang đến cho bạn những trải nghiệm mượt mà ấn tượng, xứng đáng với sự đầu tư.', 'https://lh3.googleusercontent.com/7hF1me96OMiRq6Faqy5OoA9oyDFpDCDioWS5aBJuWmtPVH4MUAgN2DG_bKoRG5tn21y9vDl7qRZQTBg0spHB1IRI6tebA7Ee=w1000-rw', 1, '{\"series\":  \"TUF Gaming\",\"partnum\": \"90NR09L3-M00510\",\"color\": \"Đen\",\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"cpugen\": \"Core i5 , Intel Core thế hệ thứ 12\",\"cpu\": \"Intel Core i5-12450H ( 2.0 GHz - 4.4GHz / 12MB / 8 nhân, 12 luồng ) i5-12450H\",\"gpu\": \"NVIDIA GeForce RTX 3060 6GB GDDR6\",\"ram\": \"16GB DDR4 3200MHz\",\"screen\": \"15.6inch IPS(1920 x 1080), 144Hz\",\"storage\": \"512GB SSD\",\"os\": \"Windows 10 Home\",\"keyboard\": \"Backlit Keyboard\",\"pin\": \"3 Cell 51Wh\",\"weight\": \"2.2kg\"}\n'),
 (2, 'Asus', '12 tháng', 20890001, 'Laptop Asus TUF Gaming A15 FA506IHRB-HN080W', 'Laptop ASUS TUF Gaming A15 FA506IHRB-HN080W 90NR07G7-M007T0 sở hữu vẻ ngoài mạnh mẽ, cá tính với logo ASUS được đặt ở giữa cùng những đường nét thiết kế độc đáo. Laptop mang lại sự ấn tượng nhờ vào hiệu năng mạnh mẽ của CPU Ryzen 5 cùng card màn hình GTX 1650 4GB GDDR6 đáp ứng mọi nhu cầu sử dụng về cấu hình như chơi game hay các công việc liên quan đến đồ họa.', 'https://lh3.googleusercontent.com/S09qIzLbpS2GKRJ0iCXrABo9L6Fi5K5wX9kwRhRSqijHq-eLU45V2jyOjr8Az04RvR2lc3IxTlQed8govsoKGkdEbW-6ql4=w1000-rw', 1, '{\"series\":  \"TUF Gaming\",\"partnum\": \"90NR09L3-M00510\",\"color\": \"Đen\",\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"cpugen\": \"Core i5 , Intel Core thế hệ thứ 12\",\"cpu\": \"Intel Core i5-12450H ( 2.0 GHz - 4.4GHz / 12MB / 8 nhân, 12 luồng ) i5-12450H\",\"gpu\": \"NVIDIA GeForce RTX 3060 6GB GDDR6\",\"ram\": \"16GB DDR4 3200MHz\",\"screen\": \"15.6inch IPS(1920 x 1080), 144Hz\",\"storage\": \"512GB SSD\",\"os\": \"Windows 10 Home\",\"keyboard\": \"Backlit Keyboard\",\"pin\": \"3 Cell 51Wh\",\"weight\": \"2.2kg\"}\r\n'),
 (3, 'ACER', '12 tháng', 20890002, 'Laptop ACER Aspire 3 A315-58-54M5 (i5-1135G7/RAM 8GB/512GB SSD/ Windows 11)', 'Laptop Acer Aspire 3 A315-58-54M5 NX.ADDSV.00M Bạc được biết đến là một trong những dòng laptop cao cấp đến từ thương hiệu Acer. Chiếc laptop này sở hữu một vẻ ngoài thời thượng cùng hiệu năng hoạt động ổn định hứa hẹn sẽ chinh phục người dùng ngay từ những ánh nhìn đầu tiên', 'https://lh3.googleusercontent.com/_SApryKFms-BYshoOG9JRUG14-JLrnShoUSZ7_4_JqcYW5YaL2eRJ0cw4AXNjOmHDi1q-f-dVFH3BwyiCMxg-7-mAsKPGA-LcA=w1000-rw', 1, '{\"series\":  \"TUF Gaming\",\"partnum\": \"90NR09L3-M00510\",\"color\": \"Đen\",\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"cpugen\": \"Core i5 , Intel Core thế hệ thứ 12\",\"cpu\": \"Intel Core i5-12450H ( 2.0 GHz - 4.4GHz / 12MB / 8 nhân, 12 luồng ) i5-12450H\",\"gpu\": \"NVIDIA GeForce RTX 3060 6GB GDDR6\",\"ram\": \"16GB DDR4 3200MHz\",\"screen\": \"15.6inch IPS(1920 x 1080), 144Hz\",\"storage\": \"512GB SSD\",\"os\": \"Windows 10 Home\",\"keyboard\": \"Backlit Keyboard\",\"pin\": \"3 Cell 51Wh\",\"weight\": \"2.2kg\"}\r\n'),
 (4, 'ACER', '12 tháng', 20890003, 'Laptop ACER Nitro 5 Eagle AN515-57-54MV (i5-11400H/RAM 8GB/512GB SSD/ Windows 11)', 'Là dòng laptop gaming của thương hiệu Acer, laptop Acer Nitro 5 Eagle AN515-57-54MV được trang bị chip i5 mạnh mẽ, card đồ họa NVIDIA GeForce RTX 3050, ram 8Gb cùng dung lượng lớn. Kết hợp với thiết kế đẹp và mạnh mẽ, đây sẽ là sự lựa chọn dành cho các game thủ trẻ và người làm công việc liên quan đến đồ họa.', 'https://lh3.googleusercontent.com/c7VuA4P8sHHJCilfzRVp50AQmgZEkJOyOCuh4vvkcT9jxfqTzZVd2gepUFSSqzXVSEljnYlAN319sJD-H1IztNcxPT3UypA=w1000-rw', 1, '{\"series\":  \"TUF Gaming\",\"partnum\": \"90NR09L3-M00510\",\"color\": \"Đen\",\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"cpugen\": \"Core i5 , Intel Core thế hệ thứ 12\",\"cpu\": \"Intel Core i5-12450H ( 2.0 GHz - 4.4GHz / 12MB / 8 nhân, 12 luồng ) i5-12450H\",\"gpu\": \"NVIDIA GeForce RTX 3060 6GB GDDR6\",\"ram\": \"16GB DDR4 3200MHz\",\"screen\": \"15.6inch IPS(1920 x 1080), 144Hz\",\"storage\": \"512GB SSD\",\"os\": \"Windows 10 Home\",\"keyboard\": \"Backlit Keyboard\",\"pin\": \"3 Cell 51Wh\",\"weight\": \"2.2kg\"}\r\n'),
@@ -189,12 +178,14 @@ INSERT INTO `product` (`id`, `brand`, `warranty`, `price`, `name`, `description`
 (17, 'Garmin Forerunner', '6 tháng', 20890000, 'Đồng hồ thông minh GPS Garmin Forerunner 55, màu đá trắng, KOR/SEA (010-02562-51)', 'Đồng hồ thông minh GPS Garmin Forerunner 55 010-02562-51 với thiết kế năng động, bắt mắt, được hỗ trợ đa dạng tính năng như đánh giá mức độ luyện tập, quản lý sức khỏe, định vị GPS… Giúp tạo nên hứng khởi, duy trì thói quen luyện tập của bạn.', 'https://lh3.googleusercontent.com/9uRnOorEuREyLNZVDmtmeKQWTNoFPa7NY12luiBAH_NksgZOEA8VzkjdyiBK3m8J6j0PhEdCp4CU1K8q5LTIeI_y9BGC3R6azQ=w1000-rw', 4, '{\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"color\": \"Đen / Black\",\"type\": \"Đồng hồ thông minh\",\"connect\": \"Wifi, GPS, ANT+, Bluetooth\"}'),
 (18, 'Garmin Forerunner', '36 tháng', 20890000, 'Đồng hồ thông minh Garmin Forerunner 255 Music,GPS, Đen, KOR/SEA (010-02641-48)', 'Đồng hồ thông minh Garmin Forerunner 255 010 - 02641 - 48 giúp hỗ trợ theo dõi tình trạng sức khỏe của bạn cũng như thông tin về tình hình luyện tập của bạn và còn nhiều tính năng hiện đại khác. Forerunner 255 có thiết kế thời thượng phù hợp với nhiều phong cách của nhiều đối tượng khách hàng.', 'https://lh3.googleusercontent.com/UKFN3gMReb2J5So_reVv-_QUmwjNe9FLvyZ2mqWS4rpfkKle9lNJoAKm0abGNeiKU1WHnOK3hWRAMK54kQkjHsipLR6-gMxiQA=w1000-rw', 4, '{\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"color\": \"Đen / Black\",\"type\": \"Đồng hồ thông minh\",\"connect\": \"Wifi, GPS, ANT+, Bluetooth\"}'),
 (19, 'Garmin Instinct', '36 tháng', 20890000, 'Đồng hồ thông minh Garmin Instinct, GPS, Seafoam_010-02064-64', 'Garmin là một trong những hãng sản xuất vòng đeo tay và đồng hồ thông minh được nhiều người dùng tin tưởng và lựa chọn các sản phẩm của hãng với thiết kế đẹp mắt sang trọng phù hợp với nhiều đối tượng sử dụng và tính năng đa dạng Trong đó sản phẩm Đồng hồ thông minh Garmin Instinct, GPS, Seafoam_010-02064-64 thuộc dòng đồng hồ tiêu chuẩn quân sự hoa kỳ được người sử dụng tin tưởng và sử dụng.\r\n\r\n', 'https://lh3.googleusercontent.com/eXyB09sU3JAB4PjZu4RkJGIQzKEjlSo45xU39c1yZzBsX2yinRhOY52oyCjY_C9G9qQJIoZd45T4fOZOB4_B=w1000-rw', 4, '{\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"color\": \"Đen / Black\",\"type\": \"Đồng hồ thông minh\",\"connect\": \"Wifi, GPS, ANT+, Bluetooth\"}'),
-(20, 'Garmin MARQ', '36 tháng', 20890000, 'Đồng hồ thông minh Garmin MARQ CAPTAIN (SEA_010-02006-54)', 'Garmin là một trong những hãng sản xuất vòng đeo tay và đồng hồ thông minh được nhiều người dùng tin tưởng và lựa chọn các sản phẩm của hãng với thiết kế đẹp mắt sang trọng phù hợp với nhiều đối tượng sử dụng và tính năng đa dạng Trong đó sản phẩm Garmin MARQ CAPTAIN thuộc phân khúc cao cấp với rất nhiều tính năng như hỗ trợ trong công việc luyện tập và rèn luyện sức khỏe, đặc biệt là những tính năng trong hạm đội.\r\n\r\n', 'https://lh3.googleusercontent.com/NQ_FkEqVCxuoo7ClN3JXZFryRwp0wPNbuxXUzmS0yzl9904ID1hYPVPT7m2-UAOD1bTLv2YErFfsJVqjSoQ=w1000-rw', 4, '{\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"color\": \"Đen / Black\",\"type\": \"Đồng hồ thông minh\",\"connect\": \"Wifi, GPS, ANT+, Bluetooth\"}');
+(20, 'Garmin MARQ', '36 tháng', 20890000, 'Đồng hồ thông minh Garmin MARQ CAPTAIN (SEA_010-02006-54)', 'Garmin là một trong những hãng sản xuất vòng đeo tay và đồng hồ thông minh được nhiều người dùng tin tưởng và lựa chọn các sản phẩm của hãng với thiết kế đẹp mắt sang trọng phù hợp với nhiều đối tượng sử dụng và tính năng đa dạng Trong đó sản phẩm Garmin MARQ CAPTAIN thuộc phân khúc cao cấp với rất nhiều tính năng như hỗ trợ trong công việc luyện tập và rèn luyện sức khỏe, đặc biệt là những tính năng trong hạm đội.\r\n\r\n', 'https://lh3.googleusercontent.com/NQ_FkEqVCxuoo7ClN3JXZFryRwp0wPNbuxXUzmS0yzl9904ID1hYPVPT7m2-UAOD1bTLv2YErFfsJVqjSoQ=w1000-rw', 4, '{\"demand\": \"Gaming, Đồ họa - Kỹ thuật\",\"color\": \"Đen / Black\",\"type\": \"Đồng hồ thông minh\",\"connect\": \"Wifi, GPS, ANT+, Bluetooth\"}'),
+(21, 'ASUS', '', 11111, 'ĐJTME LTW', 'Laptop HP 15s-fq5079TU 6K799PA là dòng laptop cao cấp được thiết kế với kiểu dáng thanh lịch, tinh tế hướng tới những đối tượng học sinh, sinh viên và văn phòng. HP 15s sở hữu cấu hình mạnh mẽ với CPU Intel Core i5-1235U đem đến nhiều trải nghiệm ấn tượng đáp ứng được nhu cầu học tập và làm việc của bạn một cách thoải mái.', 'https://lh3.googleusercontent.com/XzGYBhw_-WlifYoDb29PY75d2mjQnp0yBA4A4OtxS7QALPNRG_4wmW2y4U48aAxr1izZ75GJJ-xFKoUSs6w8m0XhPpanRSo=w500-rw', 1, '\"{\"series\":\"djtme tuyu00e1u00bbu0087t vu00e1u00bbu009di\",\"partnum\":\"311tsgs\",\"color\":\"u00c4u0090u00e1u00bbu008f\",\"demand\":\"vu00c4u0083n phu00c3u00b2ng\",\"cpugen\":\"thu00e1u00bau00bf hu00e1u00bbu0087 tu00e1u00bbu0093i tu00e1u00bbu0087 nhu00e1u00bau00a5t\",\"cpu\":\"ryzen 7\",\"gpu\":\"u00c4u0091u00e1u00bbu0093 hu00e1u00bbu008da fifai\",\"ram\":\"rem\",\"screen\":\"mu00c3u00a0 hu00c3u00acnh nhu00c6u00b0 con cu00e1u00bau00b7c tao nu00c3u00a8\",\"storage\":\"khu00c3u00b4ng giu00e1u00bbu009bi hu00e1u00bau00a1n\",\"keyboard\":\"ko cu00c3u00b3\",\"os\":\"mishcos\",\"pin\":\"pin tru00c3u00a2u vler\",\"weight\":\"chu00e1u00bbu00a5c tu00e1u00bau00a5n\"}\"'),
+(22, 'ASUS', '', 11111, 'ĐJTME LTW', 'Laptop HP 15s-fq5079TU 6K799PA là dòng laptop cao cấp được thiết kế với kiểu dáng thanh lịch, tinh tế hướng tới những đối tượng học sinh, sinh viên và văn phòng. HP 15s sở hữu cấu hình mạnh mẽ với CPU Intel Core i5-1235U đem đến nhiều trải nghiệm ấn tượng đáp ứng được nhu cầu học tập và làm việc của bạn một cách thoải mái.', 'https://lh3.googleusercontent.com/XzGYBhw_-WlifYoDb29PY75d2mjQnp0yBA4A4OtxS7QALPNRG_4wmW2y4U48aAxr1izZ75GJJ-xFKoUSs6w8m0XhPpanRSo=w500-rw', 1, '{\"series\":\"djtme tuyệt vời\",\"partnum\":\"311tsgs\",\"color\":\"Đỏ\",\"demand\":\"văn phòng\",\"cpugen\":\"thế hệ tồi tệ nhất\",\"cpu\":\"ryzen 7\",\"gpu\":\"đồ họa fifai\",\"ram\":\"rem\",\"screen\":\"mà hình như con cặc tao nè\",\"storage\":\"không giới hạn\",\"keyboard\":\"ko có\",\"os\":\"mishcos\",\"pin\":\"pin trâu vler\",\"weight\":\"chục tấn\"}');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -205,7 +196,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `role`) VALUES
@@ -218,7 +209,7 @@ INSERT INTO `user` (`ID`, `username`, `password`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user_info`
+-- Table structure for table `user_info`
 --
 
 CREATE TABLE `user_info` (
@@ -234,7 +225,7 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `user_info`
+-- Dumping data for table `user_info`
 --
 
 INSERT INTO `user_info` (`ID`, `user_id`, `name`, `address`, `phone_number`, `email`, `gender`, `dob`, `avatar`) VALUES
@@ -244,17 +235,17 @@ INSERT INTO `user_info` (`ID`, `user_id`, `name`, `address`, `phone_number`, `em
 (4, 4, 'Cao Quảng Hàn', 'Khắc Khoan, Phú Nghĩa, Bù Gia Mập, Bình Phước', '0349362424', 'han.cao509@gmail.com', 'Nam', '2001-05-02', 'https://genk.mediacdn.vn/2019/9/26/photo-1-1569489747222945898435.jpg');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`ID`),
@@ -262,87 +253,79 @@ ALTER TABLE `comments`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Chỉ mục cho bảng `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Chỉ mục cho bảng `order_product`
---
-ALTER TABLE `order_product`
-  ADD PRIMARY KEY (`order_id`,`product_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`type`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `user_info`
+-- Indexes for table `user_info`
 --
 ALTER TABLE `user_info`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
 
 --
--- Các ràng buộc cho bảng `order`
+-- Constraints for table `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
 
 --
--- Các ràng buộc cho bảng `order_product`
---
-ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`ID`),
-  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
---
--- Các ràng buộc cho bảng `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`type`) REFERENCES `category` (`ID`);
 
 --
--- Các ràng buộc cho bảng `user_info`
+-- Constraints for table `user_info`
 --
 ALTER TABLE `user_info`
   ADD CONSTRAINT `user_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);

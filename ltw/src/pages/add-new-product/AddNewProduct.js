@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function AddNewProduct() {
+  const [err, setErr] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState("1");
   const [imgURL, setImgURL] = useState("");
@@ -65,6 +66,10 @@ export default function AddNewProduct() {
   };
 
   const addProduct = () => {
+    if (brand === "" || name === "" || price === "" || warranty === "") {
+      setErr("Không được để trống");
+      return;
+    }
     let attr =
       type == 1
         ? {
@@ -200,9 +205,18 @@ export default function AddNewProduct() {
                 class="form-control"
                 id="exampleFormControlInput1"
                 value={brand}
-                onChange={(e) => setBrand(e.target.value)}
+                onChange={(e) => {
+                  setBrand(e.target.value);
+                }}
               />
             </div>
+            {err ? (
+              <div class="alert alert-danger" role="alert">
+                {err}
+              </div>
+            ) : (
+              ""
+            )}
             <div class="col-xs-12 col-md-4">
               <label for="exampleFormControlInput1" class="form-label">
                 <strong>Bảo hành</strong>

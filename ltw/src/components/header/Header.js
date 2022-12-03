@@ -41,9 +41,7 @@ export default function Header() {
     navigate("/login");
   };
   const LogOut = () => {
-    document.cookie = `username=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
-    document.cookie = `admin=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
-    document.cookie = `loginStat=; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;`;
+    sessionStorage.clear();
     setLoginStat(false);
     setAdmin(false);
     navigate("/login");
@@ -56,16 +54,20 @@ export default function Header() {
     navigate("/manage-products");
   };
   useEffect(() => {
-    const listCookies = document.cookie.split(";");
-    listCookies.map((item) => {
-      const i = item.split("=");
-      if (i[0] === " loginStat") {
-        setLoginStat(i[1]);
-      }
-      if (i[0] === " admin") {
-        setAdmin(i[1] == 1);
-      }
-    });
+    if (sessionStorage.getItem("loginStat")) {
+      setLoginStat(true);
+      axios
+        .post("http://localhost/controllers/users.controller.php", {
+          action: 4,
+          username: sessionStorage.getItem("username"),
+        })
+        .then((res) => {
+          setAdmin(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   });
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
