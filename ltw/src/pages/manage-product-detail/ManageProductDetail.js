@@ -47,6 +47,23 @@ export default function ManageProductDetail() {
   }
 
 
+  const deleteProduct = () => {
+    axios
+      .get("http://localhost/controllers/products.controller.php", {
+        params: {
+          action: 2,
+          id: location.state.id
+        }
+      }).then((res) => {
+        alert(res.data)
+        if (res.data == "Delete successfully") {
+          navigate(-1)
+        }
+      }).catch((err) => {
+        alert(err.data)
+      })
+  }
+
   const commentList = [{
     "idx": "0",
     "userName": "Hưng Lê",
@@ -122,7 +139,7 @@ export default function ManageProductDetail() {
                             <div class="container-fluid">
                               <div class="row">
                                 <div class="col-6">
-                                  <button type="button" class="btn btn-danger">Xóa</button>
+                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa</button>
                                 </div>
                                 <div class="col-6">
                                   <button type="button" class="btn btn-outline-primary" onClick={goToEditProductDetail} >Chỉnh sửa</button>
@@ -410,6 +427,23 @@ export default function ManageProductDetail() {
             </div>
           </div> : <></>
       }
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa sản phẩm</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Bạn có chắc muốn xóa sản phẩm này
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style={{ width: '80px' }}>Không</button>
+              <button onClick={deleteProduct} type="button" class="btn btn-primary" data-bs-dismiss="modal" style={{ width: '80px' }}>Có</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

@@ -39,8 +39,6 @@ export default function EditNewsDetail() {
     navigate(-1);
   }
 
-  
-
   const editNews = () => {
     axios.post("http://localhost/controllers/news.controller.php", {
       action: 3,

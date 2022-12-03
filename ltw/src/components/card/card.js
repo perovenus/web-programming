@@ -18,7 +18,7 @@ function Card(props) {
           class="card" type="button" key={props.id}
           onClick={() => goToDetail(props.name, props.id)}>
           <img class="card-img-top" src={props.image} alt="Card image cap" />
-          <div class="card-body">
+          <div class="card-body d-flex flex-column justify-content-between">
             <p class="card-title mb-3">{props.name}</p>
             <p class="price">{props.price} đ</p>
           </div>
@@ -30,7 +30,7 @@ function Card(props) {
           class="card" type="button" key={props.id}
           onClick={() => goToDetail(props.title, props.id)}>
           <img class="card-img-top" src={props.image} alt="Card image cap" />
-          <div class="card-body">
+          <div class="card-body d-flex flex-column justify-content-between">
             <h6 class="card-title mb-2" style={{ fontWeight: 700 }}>{props.title}</h6>
             <p class="time-up mb-2">{props.time_up}</p>
             <p class="content">{props.content}</p>

@@ -9,6 +9,11 @@
 
 .card-img-top {
   border-radius: 0 !important;
+  height: 250px;
+  object-fit: cover;
+}
+.card-body {
+  min-height: 129px;
 }
 .card-title {
   overflow: hidden;

@@ -56,9 +56,6 @@ class NewsModel{
         }
     }
     public function editNewsById($info){
-        var_dump($info);
-        // $sql = "UPDATE news SET title = ".$info['title'].", thumbnail = ".$info['image'].", content = ".$info['content'].", type = ".$info['type']." WHERE ID = ".$info['id'];
-        // $sql = "UPDATE news SET title = ".$info['title']. "WHERE ID = ". $info['id'];
         $id = $info['id'];
         $title = $info['title'];
         $thumbnail = $info['image'];

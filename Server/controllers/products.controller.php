@@ -46,11 +46,13 @@ if(isset($_POST['action'])) {
         case '3': //edit product by id
             $info = [
                 'id' => $_POST['id'],
-                'title' => $_POST['title'],
+                'name' => $_POST['name'],
+                'brand' => $_POST['brand'],
                 'price' => $_POST['price'],
+                'warranty' => $_POST['warranty'],
                 'description' => $_POST['description'],
                 'thumbnail' => $_POST['thumbnail'],
-                'category' => $_POST['category'],
+                'type' => $_POST['type'],
                 'attribute' => $_POST['attribute'],
             ];
             $prsCtr->editProducts($info);

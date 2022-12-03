@@ -127,7 +127,7 @@ export default function Header() {
             </ul>
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                {admin ? (
+                {true ? (
                   <div class="nav-link" type="button" id="shopping-cart">
                     <div
                       class="nav-link d-flex align-items-center"

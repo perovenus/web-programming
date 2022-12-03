@@ -58,7 +58,16 @@ class ProductsModel{
         }
     }
     public function editProducts($info){
-        $sql = "UPDATE product SET title = '".$info['title']."', price = '".$info['price']."', description = '".$info['description']."', thumbnail = '".$info['thumbnail']."', category_id = '".$info['category']."', attr = '".$info['attribute']."' WHERE ID = ".$info['id'];
+        $id = $info['id'];
+        $brand = $info['brand'];
+        $warranty = $info['warranty'];
+        $price = $info['price'];
+        $name = $info['name'];
+        $description = $info['description'];
+        $thumbnail = $info['thumbnail'];
+        $type = $info['type'];
+        $attribute = $info['attribute'];
+        $sql = "UPDATE product SET brand = '$brand', warranty = '$warranty', price = '$price', name = '$name', description = '$description', thumbnail = '$thumbnail', type = '$type', attr = '$attribute' WHERE id = '$id'";
         $result = $this->productstable->query($sql);
         if($result){
             echo "Edit successfully";
