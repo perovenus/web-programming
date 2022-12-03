@@ -65,4 +65,14 @@ class UserModel{
             echo "fail";
         }
     }
+    public function checkrole($username){
+        $sql = "SELECT username, role  FROM user";
+        $result = $this->userstable->query($sql);
+        while($row = $result->fetch_assoc()) {
+            $hashusername = hash('sha256',$row['username']);
+            if($hashusername == $username){
+                echo $row['role'];
+            }
+        }
+    }
 }
