@@ -68,6 +68,10 @@ export default function Header() {
     handleClickOnNavbar(5);
     navigate("/manage-products");
   };
+  const goToManageOrders = () => {
+    handleClickOnNavbar(5);
+    navigate("/manage-orders")
+  }
   useEffect(() => {
     if (sessionStorage.getItem("loginStat")) {
       setLoginStat(true);
@@ -254,7 +258,7 @@ export default function Header() {
                       <li>
                         <hr class="dropdown-divider" />
                       </li>
-                      <li class="dropdown-item">
+                      <li class="dropdown-item" onClick={goToManageOrders}>
                         <p>Quản lý đơn hàng</p>
                       </li>
                     </ul>

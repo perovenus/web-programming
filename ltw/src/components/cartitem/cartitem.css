@@ -16,6 +16,13 @@
 #thumbnail img {
   max-width: 80%;
 }
+#thumbnail .del-btn {
+  font-size: 14px;
+  color:#0085FF
+}
+#thumbnail .del-btn:hover {
+  color: red;
+}
 #buttongroup {
   border-radius: 5px;
   background-color: #F8F8FC;
