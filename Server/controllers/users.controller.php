@@ -15,8 +15,8 @@ class UserController {
     public function updateUser($info){
         $this->userModel->updateUser($info);
     }
-    public function addUser($info){
-        $this->userModel->addUser($info);
+    public function addUser($username, $password){
+        $this->userModel->addUser($username, $password);
     }
     public function checkrole($username){
         $this->userModel->checkrole($username);
@@ -50,7 +50,7 @@ if(isset($_POST['action'])){
             $usrCtr->updateUser($_POST['info']);
             break;
         case 3:
-            $usrCtr->addUser($_POST['info']);
+            $usrCtr->addUser($_POST['username'], $_POST['password']);
             break;
         case 4:
             $usrCtr->checkrole($_POST['username']);

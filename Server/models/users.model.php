@@ -55,15 +55,25 @@ class UserModel{
             echo "fail";
         }
     }
-    public function addUser($info){
-        $sql = "INSERT INTO users (username, password, email, phone, address, role) VALUES ('".$info['username']."', '".$info['password']."', '".$info['email']."', '".$info['phone']."', '".$info['address']."', '".$info['role']."')";
+    public function addUser($username, $password){
+        //check if username is existed
+        $sql = "SELECT * FROM user WHERE username = '$username'";
         $result = $this->userstable->query($sql);
-        if($result){
-            echo "Add successfully";
+        if($result->num_rows > 0){
+            echo "Username is existed";
         }
         else{
-            echo "fail";
+            $sql = "INSERT INTO user (username, password, role) VALUES ('$username', '$password',0)";
+            $result = $this->userstable->query($sql);
+            if($result){
+                echo "Add successfully";
+            }
+            else{
+                echo "fail";
+            }
         }
+    
+       
     }
     public function checkrole($username){
         $sql = "SELECT username, role  FROM user";
