@@ -20,6 +20,7 @@ class NewsModel{
                 'time_up' => $row['time_up'],
                 'content' => $row['content'],
                 "image" => $row['thumbnail'],
+                "type" => $row['type'],
             ];
             
         }

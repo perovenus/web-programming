@@ -78,6 +78,11 @@
             $this->carttable->query($sql_update);
             echo "update successfully";
         }
+        public function deleteCart($username){
+            $userID = $this->DecodeUsername($username);
+            $sql = "DELETE FROM `cart` WHERE `cart`.`user_id` = $userID";
+            $result = $this->carttable->query($sql);
+        }
 
     }
 ?>
