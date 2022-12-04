@@ -28,6 +28,40 @@ USE `web_programming`;
 -- Cấu trúc bảng cho bảng `category`
 --
 
+CREATE TABLE `cart` (
+  `ID` int(11) NOT NULL,
+  `order_date` date NOT NULL,
+  `status` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `total_cash` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `order_date`, `status`, `total_cash`, `user_id`, `product_id`, `quantity`) VALUES
+(1, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 16, 1),
+(2, '2022-11-15', 'Chưa thanh toán', 20890002, 3, 3, 1),
+(3, '2022-11-15', 'Chưa thanh toán', 20900000, 3, 11, 1),
+(6, '2022-12-04', 'chưa thanh toán', 41780000, 3, 1, 2);
+
+--
+-- Triggers `cart`
+--
+DELIMITER $$
+CREATE TRIGGER `updatetotal` BEFORE UPDATE ON `cart` FOR EACH ROW SET NEW.`total_cash` = 	NEW.`quantity` * (SELECT  `price` FROM `product` WHERE NEW.`product_id` = `product`.`id`)
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
 CREATE TABLE `category` (
   `ID` int(11) NOT NULL,
   `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
@@ -106,35 +140,22 @@ INSERT INTO `news` (`ID`, `title`, `content`, `thumbnail`, `type`, `time_up`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `ordered`
 --
 
-CREATE TABLE `order` (
-  `ID` int(11) NOT NULL,
-  `order_date` date NOT NULL,
-  `status` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `total_cash` int(11) NOT NULL,
+CREATE TABLE `ordered` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_products` text COLLATE utf8_unicode_ci NOT NULL,
+  `quantitys` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `order`
+-- Dumping data for table `ordered`
 --
 
-INSERT INTO `order` (`ID`, `order_date`, `status`, `total_cash`, `user_id`, `product_id`, `quantity`) VALUES
-(1, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 16, 1),
-(2, '2022-11-15', 'Chưa thanh toán', 20890002, 3, 3, 1),
-(3, '2022-11-15', 'Chưa thanh toán', 20900000, 3, 11, 1);
-
---
--- Triggers `order`
---
-DELIMITER $$
-CREATE TRIGGER `updatetotal` BEFORE UPDATE ON `order` FOR EACH ROW SET NEW.`total_cash` = 	NEW.`quantity` * (SELECT  `price` FROM `product` WHERE NEW.`product_id` = `product`.`id`)
-$$
-DELIMITER ;
+INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantitys`) VALUES
+(1, 3, '3,11,16', '1,1,1');
 
 -- --------------------------------------------------------
 
@@ -200,6 +221,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `role`) VALUES
+(0, 'abcdef', 'abcdef', 0),
 (1, 'perovenus', '12345', 1),
 (2, 'admin', 'admin', 1),
 (3, '123456', '123456', 0),
@@ -239,6 +261,13 @@ INSERT INTO `user_info` (`ID`, `user_id`, `name`, `address`, `phone_number`, `em
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -259,11 +288,10 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `ordered`
 --
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `user_id` (`user_id`);
+ALTER TABLE `ordered`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product`
@@ -290,36 +318,43 @@ ALTER TABLE `user_info`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `ordered`
 --
-ALTER TABLE `order`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `ordered`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
+
+--
 -- Constraints for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
 
 --
--- Constraints for table `order`
+-- Constraints for table `product`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
-
---
--- Các ràng buộc cho bảng `product`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`type`) REFERENCES `category` (`ID`);
 
