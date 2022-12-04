@@ -63,7 +63,10 @@
                 echo "Add successfully";
             }
         }
-        public function delCart($username, $productID){
+        public function deleteItem($username, $productID){
+            $userID = $this->DecodeUsername($username);
+            $sql = "DELETE FROM `cart` WHERE `cart`.`user_id` = $userID AND `cart`.`product_id` = $productID";
+            $result = $this->carttable->query($sql);
             
         }
         public function editItem($username, $productID, $num){

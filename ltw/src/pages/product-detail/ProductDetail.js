@@ -13,12 +13,10 @@ import "./ProductDetail.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 export default function ProductDetail() {
   const [product, setProduct] = useState({});
   const [specifications, setSpecifications] = useState({});
   const location = useLocation();
-
   useEffect(() => {
     axios
       .get("http://localhost/controllers/products.controller.php", {
@@ -35,8 +33,6 @@ export default function ProductDetail() {
         console.log(err);
       });
   }, []);
-
-  
 
   const commentList = [
     {
@@ -157,6 +153,8 @@ export default function ProductDetail() {
                                   class="btn btn-outline-primary"
                                   onClick={() => {
                                     addProduct(0);
+                                    //reload page
+                                    window.location.reload();
                                   }}
                                 >
                                   Thêm vào giỏ hàng
