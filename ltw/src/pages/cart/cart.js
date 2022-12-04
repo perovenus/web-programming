@@ -50,32 +50,20 @@ function Cart() {
       });
   };
   const payment = () => {
-    // let id_products = "";
-    // let quantities = "";
-    // cart.map((item) => {
-    //   if (id_products === "") {
-    //     id_products += item.id;
-    //     quantities += item.quantity;
-    //   } else {
-    //     id_products += "," + item.id;
-    //     quantities += "," + item.quantity;
-    //   }
-    // });
-    // axios
-    //   .post("http://localhost/controllers/ordered.controller.php", {
-    //     action: 2,
-    //     username: sessionStorage.getItem("username"),
-    //     id_products: id_products,
-    //     quantities: quantities,
-    //     total_cash: total,
-    //   })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
     navigate("/checkout");
+  };
+  const deleteCart = () => {
+    axios
+      .post("http://localhost/controllers/cart.controller.php", {
+        action: 5,
+        username: sessionStorage.getItem("username"),
+      })
+      .then((res) => {
+        reloadCart();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div class="body">
@@ -84,7 +72,7 @@ function Cart() {
           <div class="col-sm-12 col-lg-9">
             <div class="d-flex justify-content-between align-items-center">
               <h3>Giỏ hàng</h3>
-              <text class="del-all-btn" type="button">
+              <text class="del-all-btn" type="button" onClick={deleteCart}>
                 Xóa tất cả
               </text>
             </div>

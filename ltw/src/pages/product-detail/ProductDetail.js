@@ -69,7 +69,6 @@ export default function ProductDetail() {
         })
         .then((res) => {
           if (res.data === "Add successfully") {
-            alert("Add to cart success");
             if (isbynow) {
               window.location.href = "/cart";
             }
