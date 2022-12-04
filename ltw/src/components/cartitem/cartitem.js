@@ -51,13 +51,13 @@ function CartItem(props) {
           </div>
           <div class="col-sm-4 col-lg-2" id="quantity">
             <div class="row" id="buttongroup">
-              <div class="col-4" id="minus">
+              <div class="col-4" id="minus" type="button">
                 <FaMinus onClick={minusbtn} />
               </div>
               <div class="col-4 d-flex justify-content-center">
                 <text>{props.quantity}</text>
               </div>
-              <div class="col-4" id="plus">
+              <div class="col-4" id="plus" type="button">
                 <FaPlus onClick={plusbtn} />
               </div>
             </div>

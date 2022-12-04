@@ -59,7 +59,7 @@ export default function UserInfo() {
         },
       })
       .then((res) => {
-        console.log(res)
+        alert(res.data);
       })
       .catch((err) => {
         console.log(err);

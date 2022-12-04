@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,7 +9,44 @@ export default function AddNewNews() {
   const [type, setType] = useState("1")
   const [imgURL, setImgURL] = useState("")
   const [content, setContent] = useState("")
-  
+
+  const [valTitle, setValTitle] = useState(true)
+  const [valImgURL, setValImgURL] = useState(true)
+  const [valContent, setValContent] = useState(true)
+
+  const titleRef = useRef(null)
+  const imgURLRef = useRef(null)
+  const contentRef = useRef(null)
+
+  const handleSubmit = () => {
+    var validated = true
+    if (title !== "") {
+      setValTitle(true)
+    } else {
+      validated = false
+      setValTitle(false)
+      titleRef.current.focus()
+    }
+    if (imgURL !== "") {
+      setValImgURL(true)
+    } else {
+      validated = false
+      setValImgURL(false)
+      imgURLRef.current.focus()
+    }
+    if (content !== "") {
+      setValContent(true)
+    } else {
+      validated = false
+      setValContent(false)
+      contentRef.current.focus()
+    }
+
+    if(validated) {
+      addNews()
+    }
+  }
+
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -17,7 +54,7 @@ export default function AddNewNews() {
   today = yyyy + '/' + mm + '/' + dd;
 
   const navigate = useNavigate()
-  
+
   const goBack = () => {
     navigate(-1);
   }
@@ -52,7 +89,11 @@ export default function AddNewNews() {
                 id="exampleFormControlInput1"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                ref={titleRef}
               />
+              {
+                valTitle ? <></> : <p id="error-input">Không được để trống</p>
+              }
             </div>
             <div class="col-xs-12 col-md-4">
               <label for="exampleFormControlInput1" class="form-label">
@@ -80,7 +121,11 @@ export default function AddNewNews() {
                 class="form-control"
                 value={imgURL}
                 onChange={(e) => setImgURL(e.target.value)}
+                ref={imgURLRef}
               />
+              {
+                valImgURL ? <></> : <p id="error-input">Không được để trống</p>
+              }
             </div>
             <div class="col-xs-12 col-md-4">
               <label for="exampleFormControlInput1" class="form-label">
@@ -102,11 +147,15 @@ export default function AddNewNews() {
               class="form-control shadow-none textarea" rows="10"
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              ref={contentRef}
             ></textarea >
+            {
+              valContent ? <></> : <p id="error-input">Không được để trống</p>
+            }
           </div>
           <div class="d-flex justify-content-center">
             <button
-              onClick={addNews}
+              onClick={handleSubmit}
               type="button" class="btn btn-primary"
               style={{ width: '120px', height: '45px', alignSelf: 'center' }}
             >Xác nhận</button>

@@ -17,30 +17,39 @@ export default function Header() {
   const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
   const goToCart = () => {
+    handleClickOnNavbar(5);
     navigate("/cart");
   };
   const goToAbout = () => {
+    handleClickOnNavbar(1);
     navigate("/about");
   };
   const goToNews = () => {
+    handleClickOnNavbar(2);
     navigate("/news");
   };
   const goToHome = () => {
+    handleClickOnNavbar(5);
     navigate("/");
   };
   const goToProducts = () => {
+    handleClickOnNavbar(3);
     navigate("/products");
   };
   const goToContact = () => {
+    handleClickOnNavbar(4);
     navigate("/contact");
   };
   const goToUserInfo = () => {
+    handleClickOnNavbar(5);
     navigate("/user-info");
   };
   const goToLogin = () => {
+    handleClickOnNavbar(5);
     navigate("/login");
   };
   const LogOut = () => {
+    handleClickOnNavbar(5);
     sessionStorage.clear();
     setLoginStat(false);
     setAdmin(false);
@@ -48,9 +57,11 @@ export default function Header() {
   };
 
   const goToManageNews = () => {
+    handleClickOnNavbar(5);
     navigate("/manage-news");
   };
   const goToManageProducts = () => {
+    handleClickOnNavbar(5);
     navigate("/manage-products");
   };
   useEffect(() => {
@@ -69,6 +80,46 @@ export default function Header() {
         });
     }
   });
+
+  const [aboutActive, setAboutActive] = useState(false)
+  const [newsActive, setNewsActive] = useState(false)
+  const [productsActive, setProductsActive] = useState(false)
+  const [contactActive, setContactActive] = useState(false)
+
+  const handleClickOnNavbar = (e) => {
+    switch (e) {
+      case 1:
+        setAboutActive(true);
+        setNewsActive(false);
+        setProductsActive(false);
+        setContactActive(false);
+        break;
+      case 2:
+        setAboutActive(false);
+        setNewsActive(true);
+        setProductsActive(false);
+        setContactActive(false);
+        break;
+      case 3:
+        setAboutActive(false);
+        setNewsActive(false);
+        setProductsActive(true);
+        setContactActive(false);
+        break;
+      case 4:
+        setAboutActive(false);
+        setNewsActive(false);
+        setProductsActive(false);
+        setContactActive(true);
+        break;
+      default:
+        setAboutActive(false);
+        setNewsActive(false);
+        setProductsActive(false);
+        setContactActive(false);
+        break;
+    }
+  }
   return (
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
@@ -107,22 +158,54 @@ export default function Header() {
               id="navbar-nav"
             >
               <li class="nav-item">
-                <a class="nav-link" type="button" onClick={goToAbout}>
+                <a
+                  class="nav-link"
+                  type="button"
+                  onClick={goToAbout}
+                  style={{
+                    fontWeight: aboutActive ? 700 : 500,
+                    color: aboutActive ? '#176FC0' : ''
+                  }}
+                >
                   Về chúng tôi
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" type="button" onClick={goToNews}>
+                <a
+                  class="nav-link"
+                  type="button"
+                  onClick={goToNews}
+                  style={{
+                    fontWeight: newsActive ? 700 : 500,
+                    color: newsActive ? '#176FC0' : ''
+                  }}
+                >
                   Tin tức
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" type="button" onClick={goToProducts}>
+                <a
+                  class="nav-link"
+                  type="button"
+                  onClick={goToProducts}
+                  style={{
+                    fontWeight: productsActive ? 700 : 500,
+                    color: productsActive ? '#176FC0' : ''
+                  }}
+                >
                   Sản phẩm
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" type="button" onClick={goToContact}>
+              <li class="nav-item active">
+                <a
+                  class="nav-link"
+                  type="button"
+                  onClick={goToContact}
+                  style={{
+                    fontWeight: contactActive ? 700 : 500,
+                    color: contactActive ? '#176FC0' : ''
+                  }}
+                >
                   Liên hệ
                 </a>
               </li>
@@ -162,8 +245,8 @@ export default function Header() {
                     </ul>
                   </div>
                 ) : (
-                  <div class="nav-link d-flex" type="button" id="shopping-cart">
-                    <div class="nav-link" onClick={goToCart}>
+                  <div class="nav-link d-flex" type="button" id="shopping-cart" onClick={goToCart}>
+                    <div class="nav-link">
                       <FontAwesomeIcon icon={faCartShopping} size="xl" />
                     </div>
                     <div id="your-cart">
