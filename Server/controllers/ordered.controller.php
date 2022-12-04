@@ -1,10 +1,10 @@
 <?php
 include_once ".././models/db.model.php";
-include_once ".././models/orders.model.php";
-    class OrdersControlller{
+include_once ".././models/ordered.model.php";
+    class OrderedControlller{
         private $ordersModel;
         public function __construct(){
-            $this->ordersModel = new OrdersModel();
+            $this->ordersModel = new OrderedModel();
         }
         public function getOrders($username){
             $this->ordersModel->getOrders($username);
@@ -23,7 +23,7 @@ include_once ".././models/orders.model.php";
         }
     }
 
-$ordersCtr = new OrdersControlller();
+$orderedCtr = new OrderedControlller();
 $_POST = json_decode(file_get_contents('php://input'), true);
 if(isset($_POST['action'])) {
     switch($_POST['action']) {

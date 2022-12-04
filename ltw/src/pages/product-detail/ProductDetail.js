@@ -66,7 +66,7 @@ export default function ProductDetail() {
       window.location.href = "/login";
     } else {
       axios
-        .post("http://localhost/controllers/orders.controller.php", {
+        .post("http://localhost/controllers/cart.controller.php", {
           action: 2,
           username: username,
           productID: location.state.id,

@@ -5,7 +5,7 @@ import axios from "axios";
 function CartItem(props) {
   const plusbtn = () => {
     axios
-      .post("http://localhost/controllers/orders.controller.php", {
+      .post("http://localhost/controllers/cart.controller.php", {
         action: 3,
         username: sessionStorage.getItem("username"),
         productID: props.id,
@@ -21,7 +21,7 @@ function CartItem(props) {
   const minusbtn = () => {
     if (props.quantity > 1) {
       axios
-        .post("http://localhost/controllers/orders.controller.php", {
+        .post("http://localhost/controllers/cart.controller.php", {
           action: 3,
           username: sessionStorage.getItem("username"),
           productID: props.id,

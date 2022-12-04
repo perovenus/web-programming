@@ -14,11 +14,12 @@ function Cart() {
       navigate("/login");
     } else {
       axios
-        .post("http://localhost/controllers/orders.controller.php", {
+        .post("http://localhost/controllers/cart.controller.php", {
           action: 1,
           username: sessionStorage.getItem("username"),
         })
         .then((res) => {
+          console.log(res.data);
           setCart(res.data);
           let tt = 0;
           res.data.map((item) => {
@@ -33,7 +34,7 @@ function Cart() {
   }, []);
   const reloadCart = () => {
     axios
-      .post("http://localhost/controllers/orders.controller.php", {
+      .post("http://localhost/controllers/cart.controller.php", {
         action: 1,
         username: sessionStorage.getItem("username"),
       })

@@ -1,6 +1,6 @@
 <?php
     include_once "db.model.php";
-    class OrdersModel{
+    class OrderedModel{
         private $db;
         private $orderstable;
         public function __construct(){
