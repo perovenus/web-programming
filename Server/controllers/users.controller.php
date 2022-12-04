@@ -12,14 +12,17 @@ class UserController {
     public function getUserByUserName($username){
         return $this->userModel->getUserByUserName($username);
     }
-    public function updateUser($info){
-        $this->userModel->updateUser($info);
+    public function updateUserInfo($info){
+        $this->userModel->updateUserInfo($info);
     }
     public function addUser($username, $password){
         $this->userModel->addUser($username, $password);
     }
     public function checkrole($username){
         $this->userModel->checkrole($username);
+    }
+    public function getUserInfo($username) {
+        $this->userModel->getUserInfo($username);
     }
 }
 
@@ -47,14 +50,17 @@ if(isset($_POST['action'])){
             }
             break;
         case 2:
-            $usrCtr->updateUser($_POST['info']);
+            $usrCtr->updateUserInfo($_POST['info']);
             break;
         case 3:
             $usrCtr->addUser($_POST['username'], $_POST['password']);
             break;
         case 4:
             $usrCtr->checkrole($_POST['username']);
-            break;  
+            break;
+        case 5:
+            $usrCtr->getUserInfo($_POST['username']);
+            break;
     }   
 }
 ?>

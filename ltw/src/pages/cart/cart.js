@@ -120,7 +120,7 @@ function Cart() {
     //   </div>
     // </div>
     <div class="body">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row mb-2 mt-2">
           <div class="col-sm-12 col-lg-9">
             <div class="d-flex justify-content-between align-items-center">
