@@ -43,10 +43,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`ID`, `order_date`, `status`, `total_cash`, `user_id`, `product_id`, `quantity`) VALUES
-(1, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 16, 1),
-(2, '2022-11-15', 'Chưa thanh toán', 20890002, 3, 3, 1),
-(3, '2022-11-15', 'Chưa thanh toán', 20900000, 3, 11, 1),
-(6, '2022-12-04', 'chưa thanh toán', 41780000, 3, 1, 2);
+(2, '2022-11-15', 'Chưa thanh toán', 41780004, 3, 3, 2),
+(3, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 11, 1);
 
 --
 -- Triggers `cart`
@@ -147,15 +145,22 @@ CREATE TABLE `ordered` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `id_products` text COLLATE utf8_unicode_ci NOT NULL,
-  `quantitys` text COLLATE utf8_unicode_ci NOT NULL
+  `quantities` text COLLATE utf8_unicode_ci NOT NULL,
+  `total_cash` int(11) NOT NULL,
+  `method` int(1) NOT NULL,
+  `notice` text COLLATE utf8_unicode_ci NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `sdt` text COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `time` text COLLATE utf8_unicode_ci NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ordered`
 --
 
-INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantitys`) VALUES
-(1, 3, '3,11,16', '1,1,1');
+INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantities`, `total_cash`, `method`, `notice`, `name`, `sdt`, `address`, `time`) VALUES
+(3, 3, '16,3,11,1', '1,1,1,1', 83570002, 0, '', '', '', '', '2022-12-04 17:00:12');
 
 -- --------------------------------------------------------
 
@@ -321,7 +326,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -333,7 +338,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `ordered`
 --
 ALTER TABLE `ordered`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

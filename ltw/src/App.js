@@ -18,11 +18,9 @@ import AddNewProduct from "./pages/add-new-product/AddNewProduct";
 import ManageProductDetail from "./pages/manage-product-detail/ManageProductDetail";
 import EditProductDetail from "./pages/edit-product/EditProductDetail";
 import EditNewsDetail from "./pages/edit-news/EditNewsDetail";
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
-import './App.css'
+import Payment from "./pages/payment/Payment";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
@@ -57,6 +55,7 @@ function App() {
         <Route path="add-new-product" element={<AddNewProduct />} />
         <Route path="edit-product-detail" element={<EditProductDetail />} />
         <Route path="edit-news-detail" element={<EditNewsDetail />} />
+        <Route path="checkout" element={<Payment />} />
       </Routes>
     </Layout>
   );

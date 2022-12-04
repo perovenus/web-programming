@@ -12,8 +12,8 @@ include_once ".././models/ordered.model.php";
         public function getOrdersById($id){
             $this->ordersModel->getOrdersById($id);
         }
-        public function addOrder($username, $productID){
-            $this->ordersModel->addOrder($username, $productID);
+        public function addOrder($username, $id_products, $quantities, $total_cash){
+            $this->ordersModel->addOrder($username, $id_products, $quantities, $total_cash);
         }
         public function delOrdersById($id){
             $this->ordersModel->delOrdersById($id);
@@ -28,10 +28,10 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 if(isset($_POST['action'])) {
     switch($_POST['action']) {
         case 1: //get orders by username
-            $ordersCtr->getOrders($_POST['username']);
+            $orderedCtr->getOrders($_POST['username']);
             break;
         case 2: //add news
-            $ordersCtr->addOrder($_POST['username'], $_POST['productID']);
+            $orderedCtr->addOrder($_POST['username'], $_POST['id_products'], $_POST['quantities'], $_POST['total_cash']);
             break;
         case 3: //ediit order
             $ordersCtr->editOrder($_POST['username'], $_POST['productID'], $_POST['num']);
