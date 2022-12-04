@@ -1,5 +1,5 @@
 import "./cartitem.css";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import axios from "axios";
 
 function CartItem(props) {
@@ -35,10 +35,24 @@ function CartItem(props) {
         });
     }
   };
+  const handleDelete = () => {
+    axios
+      .post("http://localhost/controllers/cart.controller.php", {
+        action: 4,
+        username: sessionStorage.getItem("username"),
+        productID: props.id,
+      })
+      .then((res) => {
+        props.reloadCart();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="row" id="mainitem">
       <div className="col-sm-4 col-lg-2" id="thumbnail">
-        <input type="checkbox" />
+        <text onClick={handleDelete}>Xóa</text>
         <img src={props.image} alt="product" />
       </div>
       <div class="col-sm-8 col-lg-10">

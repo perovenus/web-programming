@@ -15,6 +15,10 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const [loginStat, setLoginStat] = useState(false);
   const [admin, setAdmin] = useState(false);
+  const [num, setNum] = useState(0);
+  function setnum() {
+    alert("setnum");
+  }
   const navigate = useNavigate();
   const goToCart = () => {
     handleClickOnNavbar(5);
@@ -74,6 +78,17 @@ export default function Header() {
         })
         .then((res) => {
           setAdmin(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      axios
+        .post("http://localhost/controllers/cart.controller.php", {
+          action: 1,
+          username: sessionStorage.getItem("username"),
+        })
+        .then((res) => {
+          setNum(res.data.length);
         })
         .catch((err) => {
           console.log(err);
@@ -251,7 +266,7 @@ export default function Header() {
                     </div>
                     <div id="your-cart">
                       <p>Giỏ hàng của bạn</p>
-                      <p>(0) sản phẩm</p>
+                      <p>({num}) sản phẩm</p>
                     </div>
                   </div>
                 )}

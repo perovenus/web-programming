@@ -19,7 +19,6 @@ function Cart() {
           username: sessionStorage.getItem("username"),
         })
         .then((res) => {
-          console.log(res.data);
           setCart(res.data);
           let tt = 0;
           res.data.map((item) => {
@@ -49,6 +48,34 @@ function Cart() {
       .catch((err) => {
         console.log(err);
       });
+  };
+  const payment = () => {
+    // let id_products = "";
+    // let quantities = "";
+    // cart.map((item) => {
+    //   if (id_products === "") {
+    //     id_products += item.id;
+    //     quantities += item.quantity;
+    //   } else {
+    //     id_products += "," + item.id;
+    //     quantities += "," + item.quantity;
+    //   }
+    // });
+    // axios
+    //   .post("http://localhost/controllers/ordered.controller.php", {
+    //     action: 2,
+    //     username: sessionStorage.getItem("username"),
+    //     id_products: id_products,
+    //     quantities: quantities,
+    //     total_cash: total,
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    navigate("/checkout");
   };
   return (
     <div class="body">
@@ -148,8 +175,9 @@ function Cart() {
                   type="button"
                   class="btn btn-primary"
                   style={{ width: "100%" }}
+                  onClick={payment}
                 >
-                  Thanh toán
+                  Đến thanh toán
                 </button>
               </div>
             </div>
