@@ -3,18 +3,17 @@ import { useNavigate } from "react-router-dom";
 import "./Payment.css";
 import axios from "axios";
 export default function Payment() {
-
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [address, setAddress] = useState("")
-  const [note, setNote] = useState("")
-  const [payMethod, setPayMethod] = useState("1")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [note, setNote] = useState("");
+  const [payMethod, setPayMethod] = useState("1");
 
-  const [emailBinded, setEmailBinded] = useState(false)
+  const [emailBinded, setEmailBinded] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -41,19 +40,54 @@ export default function Payment() {
         username: sessionStorage.getItem("username"),
       })
       .then((res) => {
-        let userInfo = res.data[0]
-        setName(userInfo.name)
-        setEmail(userInfo.email)
+        let userInfo = res.data[0];
+        setName(userInfo.name);
+        setEmail(userInfo.email);
         if (userInfo.email !== "") {
-          setEmailBinded(true)
+          setEmailBinded(true);
         }
-        setPhoneNumber(userInfo.phone_number)
-        setAddress(userInfo.address)
+        setPhoneNumber(userInfo.phone_number);
+        setAddress(userInfo.address);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const payment = () => {
+    let id_products = "";
+    let quantities = "";
+    cart.map((item) => {
+      if (id_products === "") {
+        id_products += item.id;
+        quantities += item.quantity;
+      } else {
+        id_products += "," + item.id;
+        quantities += "," + item.quantity;
+      }
+    });
+    axios
+      .post("http://localhost/controllers/ordered.controller.php", {
+        action: 2,
+        username: sessionStorage.getItem("username"),
+        id_products: id_products,
+        quantities: quantities,
+        total_cash: total,
+        name: name,
+        method: payMethod,
+        note: note,
+        phone: phoneNumber,
+        email: email,
+        address: address,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div class="body">
       <div class="container">
@@ -67,7 +101,8 @@ export default function Payment() {
                     Họ và tên
                   </label>
                   <input
-                    class="form-control" id="name"
+                    class="form-control"
+                    id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -76,24 +111,26 @@ export default function Payment() {
                   <label for="email" class="form-label">
                     Email
                   </label>
-                  {
-                    emailBinded ?
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        value={email}
-                        disabled
-                        readOnly
-                      /> :
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        value={email}
-                        onChange={(e) => { setEmail(e.target.value) }}
-                      />
-                  }
+                  {emailBinded ? (
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      value={email}
+                      disabled
+                      readOnly
+                    />
+                  ) : (
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                    />
+                  )}
                 </div>
                 <div class="mb-3">
                   <label for="phone-number" class="form-label">
@@ -103,7 +140,9 @@ export default function Payment() {
                     class="form-control"
                     id="phone-number"
                     value={phoneNumber}
-                    onChange={(e) => { setPhoneNumber(e.target.value) }}
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
+                    }}
                   />
                 </div>
                 <div class="mb-3">
@@ -111,20 +150,27 @@ export default function Payment() {
                     Địa chỉ
                   </label>
                   <input
-                    class="form-control" id="address"
+                    class="form-control"
+                    id="address"
                     value={address}
-                    onChange={(e) => { setAddress(e.target.value) }}
+                    onChange={(e) => {
+                      setAddress(e.target.value);
+                    }}
                   />
                 </div>
               </div>
               <div class="container">
-                <h6 for="note" class="mb-3">Ghi chú cho đơn hàng</h6>
+                <h6 for="note" class="mb-3">
+                  Ghi chú cho đơn hàng
+                </h6>
                 <input
                   class="form-control"
                   id="note"
                   placeholder="Nhập thông tin ghi chú cho nhà bán hàng"
                   value={note}
-                  onChange={(e) => { setNote(e.target.value) }}
+                  onChange={(e) => {
+                    setNote(e.target.value);
+                  }}
                 />
               </div>
               <div class="container">
@@ -148,9 +194,13 @@ export default function Payment() {
               <div class="container">
                 <div class="d-flex flex-row header">
                   <h6>Thông tin giỏ hàng({cart.length})</h6>
-                  <p class="edit-btn" role="button" onClick={() => {
-                    navigate("/cart");
-                  }}>
+                  <p
+                    class="edit-btn"
+                    role="button"
+                    onClick={() => {
+                      navigate("/cart");
+                    }}
+                  >
                     Chỉnh sửa
                   </p>
                 </div>
@@ -210,6 +260,7 @@ export default function Payment() {
                   type="button"
                   class="btn btn-primary"
                   style={{ width: "100%" }}
+                  onClick={payment}
                 >
                   Thanh toán
                 </button>

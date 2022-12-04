@@ -12,8 +12,8 @@ include_once ".././models/ordered.model.php";
         public function getOrdersById($id){
             $this->ordersModel->getOrdersById($id);
         }
-        public function addOrder($username, $id_products, $quantities, $total_cash){
-            $this->ordersModel->addOrder($username, $id_products, $quantities, $total_cash);
+        public function addOrder($username, $id_products, $quantities, $total_cash, $name, $method, $note, $phone, $email, $address){
+            $this->ordersModel->addOrder($username, $id_products, $quantities, $total_cash, $name, $method, $note, $phone, $email, $address);
         }
         public function delOrdersById($id){
             $this->ordersModel->delOrdersById($id);
@@ -31,7 +31,7 @@ if(isset($_POST['action'])) {
             $orderedCtr->getOrders($_POST['username']);
             break;
         case 2: //add news
-            $orderedCtr->addOrder($_POST['username'], $_POST['id_products'], $_POST['quantities'], $_POST['total_cash']);
+            $orderedCtr->addOrder($_POST['username'], $_POST['id_products'], $_POST['quantities'], $_POST['total_cash'], $_POST['name'], $_POST['method'],$_POST['note'], $_POST['phone'], $_POST['email'], $_POST['address']);
             break;
         case 3: //ediit order
             $ordersCtr->editOrder($_POST['username'], $_POST['productID'], $_POST['num']);

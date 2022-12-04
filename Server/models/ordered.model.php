@@ -41,9 +41,9 @@
 
           
         }
-        public function addOrder($username, $id_products, $quantities, $total_cash){
+        public function addOrder($username, $id_products, $quantities, $total_cash, $name, $method, $note, $phone, $email, $address){
             $userID = $this->DecodeUsername($username);
-            $sql = "INSERT INTO ordered (id, user_id, id_products, quantities, total_cash, time) VALUES (NULL, '$userID', '$id_products', '$quantities',' $total_cash', CURRENT_TIMESTAMP)";
+            $sql = "INSERT INTO ordered (id, user_id, id_products, quantities, total_cash, method, notice, name, sdt, email, status, address, time) VALUES (NULL, '$userID', '$id_products', '$quantities',' $total_cash', '$method', '$note', '$name', '$phone', '$email', 1, '$address', CURRENT_TIMESTAMP)";
             $result = $this->orderstable->query($sql);
 
         }   
