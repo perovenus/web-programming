@@ -8,17 +8,19 @@
   align-items: center;
 }
 #name text {
-  font-size: 14px;
+  font-size: 15px;
 }
 #thumbnail {
   justify-content: space-evenly;
 }
 #thumbnail img {
-  max-width: 70%;
+  max-width: 80%;
 }
 #buttongroup {
   border-radius: 5px;
-  border: solid 1px #e0e0e0;
+  background-color: #F8F8FC;
+  border: solid 1px #B9B9B9;
+
 }
 #buttongroup #plus,
 #minus {

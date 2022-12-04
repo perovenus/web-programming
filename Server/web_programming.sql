@@ -319,13 +319,6 @@ ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
 
 --
--- Các ràng buộc cho bảng `order_product`
---
-ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`ID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE;
-
---
 -- Các ràng buộc cho bảng `product`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`type`) REFERENCES `category` (`ID`);

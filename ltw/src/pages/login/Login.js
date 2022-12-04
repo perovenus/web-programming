@@ -44,7 +44,7 @@ export default function Login() {
             class="form-control"
             id="username"
             type="text"
-            placeholder="Email hoặc số điện thoại"
+            placeholder="Tài khoản"
           />
         </div>
         <div class="mb-2">
@@ -52,7 +52,7 @@ export default function Login() {
             class="form-control"
             id="password"
             placeholder="Mật khẩu"
-            type="text"
+            type="password"
           />
         </div>
         {err ? (

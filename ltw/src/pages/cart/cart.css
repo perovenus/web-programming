@@ -1,6 +1,3 @@
-#main {
-  background-color: #f5f5fa;
-}
 #maincart {
   margin-top: 80px;
   padding: 10px;
@@ -60,4 +57,12 @@
   #monitor {
     padding: 0px;
   }
+}
+
+.del-all-btn {
+  color: #0085FF
+}
+
+.del-all-btn:hover {
+  text-decoration: underline;
 }
