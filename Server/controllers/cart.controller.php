@@ -18,6 +18,9 @@ include_once ".././models/cart.model.php";
         public function deleteItem($username, $productID){
             $this->cartModel->deleteItem($username, $productID);
         }
+        public function deleteCart($username){
+            $this->cartModel->deleteCart($username);
+        }
     }
 
 $cartCtr = new CartController();
@@ -35,6 +38,9 @@ if(isset($_POST['action'])) {
             break;
         case 4:
             $cartCtr->deleteItem($_POST['username'], $_POST['productID']);
+            break;
+        case 5:
+            $cartCtr->deleteCart($_POST['username']);
             break;
         default:
             echo "action:\n 0 get all elements,\n 1 - get element by id,\n 2 - delete element by id,\n 3 - edit element by info, \n 4 - add element by info";
