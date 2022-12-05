@@ -68,23 +68,38 @@
         public function getOrdersById($id) {
             $sql = "SELECT * FROM ordered WHERE id = '$id'";
             $result = $this->orderstable->query($sql);
-            $list = [];
-            while($row = $result->fetch_assoc()) {
-                $list[] = [
-                    'customer_name' => $row['name'],
-                    'email' => $row['email'],
-                    'phone_number' => $row['sdt'],
-                    'address' => $row['address'],
-                    'note' => $row['note'],
-                    'pay_method' => $row['method'],
-                    'time' => $row['time'],
-                    'total_cash' => $row['total_cash'],
-                    'status' => $row['status'],
-                    'product_list' => explode(",",$row['id_products']),
-                    'quantity_list' => explode(",",$row['quantities'])
+            $productlist = [];
+            $row = $result->fetch_assoc();
+            $products = explode(',', $row['id_products']);
+            $quantities = explode(',', $row['quantities']);
+            for($i = 0; $i < count($products); $i++) {
+                $sql = "SELECT * FROM product WHERE id = '$products[$i]'";
+                $result = $this->orderstable->query($sql);
+                $row = $result->fetch_assoc();
+                $productlist[] = [
+                    'image' => $row['thumbnail'],
+                    'name' => $row['name'],
+                    'price' => $row['price'],
+                    'quantity' => $quantities[$i],
+                    'cost' => $row['price'] * $quantities[$i],
                 ];
             }
-            echo json_encode($list);
+            $sql = "SELECT * FROM ordered WHERE id = '$id'";
+            $result = $this->orderstable->query($sql);
+            $row = $result->fetch_assoc();
+            $res = [];
+            $res[] = [
+                'customer_name' => $row['name'],
+                'email' => $row['email'],
+                'phone_number' => $row['sdt'],
+                'address' => $row['address'],
+                'note' => $row['note'],
+                'pay_method' => $row['method'],
+                'time' => $row['time'],
+                'total_cash' => $row['total_cash'],
+                'status' => $row['status'],
+            ];
+            echo json_encode(["info" => $res, "products" => $productlist]);
         }
 
         public function getProducts($id_list) {
