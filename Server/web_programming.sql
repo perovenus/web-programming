@@ -39,14 +39,6 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`ID`, `order_date`, `status`, `total_cash`, `user_id`, `product_id`, `quantity`) VALUES
-(2, '2022-11-15', 'Chưa thanh toán', 41780004, 3, 3, 2),
-(3, '2022-11-15', 'Chưa thanh toán', 20890000, 3, 11, 1);
-
---
 -- Triggers `cart`
 --
 DELIMITER $$
@@ -148,9 +140,11 @@ CREATE TABLE `ordered` (
   `quantities` text COLLATE utf8_unicode_ci NOT NULL,
   `total_cash` int(11) NOT NULL,
   `method` int(1) NOT NULL,
-  `notice` text COLLATE utf8_unicode_ci NOT NULL,
+  `note` text COLLATE utf8_unicode_ci NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `sdt` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
   `time` text COLLATE utf8_unicode_ci NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -159,8 +153,10 @@ CREATE TABLE `ordered` (
 -- Dumping data for table `ordered`
 --
 
-INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantities`, `total_cash`, `method`, `notice`, `name`, `sdt`, `address`, `time`) VALUES
-(3, 3, '16,3,11,1', '1,1,1,1', 83570002, 0, '', '', '', '', '2022-12-04 17:00:12');
+INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantities`, `total_cash`, `method`, `note`, `name`, `sdt`, `email`, `status`, `address`, `time`) VALUES
+(3, 3, '16,3,11,1', '1,1,1,1', 83570002, 0, '', '', '', '', 0, '', '2022-12-04 17:00:12'),
+(7, 3, '7,11,1', '3,1,1', 104450000, 1, '', 'Cao Quảng Hàn', '0349362424', 'han.cao509@gmail.com', 1, 'Khắc Khoan, Phú Nghĩa, Bù Gia Mập, Bình Phước', '2022-12-04 23:16:07'),
+(8, 3, '7,11,1', '3,1,1', 104450000, 1, '', 'Cao Quảng Hàn', '0349362424', 'han.cao509@gmail.com', 1, 'Khắc Khoan, Phú Nghĩa, Bù Gia Mập, Bình Phước', '2022-12-04 23:16:12');
 
 -- --------------------------------------------------------
 
@@ -326,7 +322,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -338,7 +334,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `ordered`
 --
 ALTER TABLE `ordered`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
