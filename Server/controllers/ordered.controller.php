@@ -15,11 +15,11 @@ include_once ".././models/ordered.model.php";
         public function addOrder($username, $id_products, $quantities, $total_cash, $name, $method, $note, $phone, $email, $address){
             $this->ordersModel->addOrder($username, $id_products, $quantities, $total_cash, $name, $method, $note, $phone, $email, $address);
         }
-        public function delOrdersById($id){
-            $this->ordersModel->delOrdersById($id);
+        public function getAllOrder() {
+            $this->ordersModel->getAllOrder();
         }
-        public function editOrder($username, $productID, $num){
-            $this->ordersModel->editOrder($username, $productID, $num);
+        public function getProducts($id_list) {
+            $this->ordersModel->getProducts($id_list);
         }
     }
 
@@ -33,8 +33,14 @@ if(isset($_POST['action'])) {
         case 2: //add news
             $orderedCtr->addOrder($_POST['username'], $_POST['id_products'], $_POST['quantities'], $_POST['total_cash'], $_POST['name'], $_POST['method'],$_POST['note'], $_POST['phone'], $_POST['email'], $_POST['address']);
             break;
-        case 3: //ediit order
-            $ordersCtr->editOrder($_POST['username'], $_POST['productID'], $_POST['num']);
+        case 3:
+            $orderedCtr->getAllOrder();
+            break;
+        case 4:
+            $orderedCtr->getOrdersById($_POST['id']);
+            break;
+        case 5:
+            $orderedCtr->getProducts($_POST['id_list']);
             break;
         default:
             echo "action:\n 0 get all elements,\n 1 - get element by id,\n 2 - delete element by id,\n 3 - edit element by info, \n 4 - add element by info";

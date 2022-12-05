@@ -1,6 +1,50 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import axios from 'axios'
+import { text } from '@fortawesome/fontawesome-svg-core'
 
 export default function OrderDetail() {
+
+  const location = useLocation()
+
+  const [orderDetail, setOrderDetail] = useState({});
+  const [productList, setProductList] = useState([]);
+
+
+  useEffect(() => {
+    axios
+      .post("http://localhost/controllers/ordered.controller.php", {
+        action: 4,
+        id: location.state.id
+
+      }) //url to see news.php
+      .then((res) => {
+        let order_detail = res.data[0]
+        setOrderDetail(order_detail);
+        console.log(order_detail.product_list)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   if (orderDetail.product_list.length > 0) {
+  //     axios
+  //       .post("http://localhost/controllers/ordered.controller.php", {
+  //         action: 5,
+  //         id_list: orderDetail.product_list.length,
+  //       })
+  //       .then((res) => {
+  //         console.log("Djtme cuoc doi")
+  //       })
+  //       .catch((err) => {
+  //         console.log(err)
+  //       })
+  //   }
+  // }, []);
+
   return (
     <div class="body">
       <div class="container">
@@ -9,57 +53,65 @@ export default function OrderDetail() {
             <div class="col-left">
               <div class="container">
                 <div class="row mb-3">
-                  <text class="col-4">Họ tên khách hàng</text>
-                  <text class="col-8">Lê Công Tiến Hưng</text>
+                  <text class="col-4">
+                    <strong>
+                      Họ tên khách hàng
+                    </strong>
+                  </text>
+                  <text class="col-8">{orderDetail.customer_name}</text>
                 </div>
                 <div class="row mb-3">
-                  <text class="col-4">Email</text>
-                  <text class="col-8">medfancy0@gmail.com</text>
+                  <text class="col-4"><strong>Email</strong></text>
+                  <text class="col-8">{orderDetail.email}</text>
                 </div>
                 <div class="row mb-3">
-                  <text class="col-4">Số điện thoại</text>
-                  <text class="col-8">0962315400</text>
+                  <text class="col-4"><strong>Số điện thoại</strong></text>
+                  <text class="col-8">{orderDetail.phone_number}</text>
                 </div>
                 <div class="row mb-3">
-                  <text class="col-4">Địa chỉ</text>
-                  <text class="col-8">69B, tổ 6, khu phố 5, phường An Bình, TP.Biên Hòa, tỉnh Đồng Nai</text>
+                  <text class="col-4"><strong>Địa chỉ</strong></text>
+                  <text class="col-8">{orderDetail.address}</text>
                 </div>
                 <div class="row mb-3">
-                  <text class="col-4">Ghi chú</text>
-                  <text class="col-8">Xuất hóa đơn khi giao hàng</text>
+                  <text class="col-4"><strong>Ghi chú</strong></text>
+                  <text class="col-8">{orderDetail.note}</text>
                 </div>
                 <div class="row mb-3">
-                  <text class="col-4">Phương thức thanh toán</text>
-                  <text class="col-8">Thanh toán khi nhận hàng</text>
+                  <text class="col-4"><strong>Thời gian đặt hàng</strong></text>
+                  <text class="col-8">{orderDetail.time}</text>
                 </div>
-              </div>
-              
-              <div class="container">
-                <h6 for="note" class="mb-3">Ghi chú cho đơn hàng</h6>
-                <input
-                  class="form-control"
-                  id="note"
-                  placeholder="Nhập thông tin ghi chú cho nhà bán hàng"
-                />
-              </div>
-              <div class="container">
-                <h5 class="mb-3">Phương thức thanh toán</h5>
-                <select
-                  class="form-select"
-                  aria-label="Default select example"
-                >
-                  <option value="1">Thanh toán khi nhận hàng</option>
-                  <option value="2">Thanh toán bằng thẻ ATM nội địa</option>
-                  <option value="3">Thanh toán bằng thẻ ghi nợ</option>
-                  <option value="4">Thanh toán bằng thẻ VISA</option>
-                </select>
+                <div class="row mb-3">
+                  <text class="col-4"><strong>Phương thức thanh toán</strong></text>
+                  <text class="col-8">{
+                    orderDetail.pay_method == 1 ? "Thanh toán khi nhận hàng" : ""
+                  }</text>
+                </div>
+                <div class="row mb-3">
+                  <text class="col-4"><strong>Tổng tiền</strong></text>
+                  <text
+                    class="col-8"
+                    style={{ color: 'red', fontSize: '20px', fontWeight: '700' }}
+                  >{orderDetail.total_cash}</text>
+                </div>
+                <div class="row mb-5">
+                  <text class="col-4"><strong>Tình trạng</strong></text>
+                  {
+                    orderDetail.status == 1 ?
+                      <text class="col-8" style={{ color: 'blue', fontWeight: '500' }}>Đã thanh toán</text>
+                      :
+                      <text class="col-8" style={{ color: 'red', fontWeight: '500' }}>Chưa thanh toán</text>
+                  }
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="button" class="btn btn-primary" style={{ height: '40px', width: '100px' }}>Xác nhận</button>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-xs-12 col-lg-5">
             <div class="col-right">
               <div class="container">
-                
+                <h6>Danh sách sản phẩm</h6>
                 {/* {cart.map((item) => {
                   return (
                     <div class="mb-3 d-flex flex-row">
@@ -78,47 +130,6 @@ export default function OrderDetail() {
                     </div>
                   );
                 })} */}
-              </div>
-              <div class="container total-charge">
-                <div class="d-flex flex-row header">
-                  <p>Tổng tạm tính</p>
-                  <p style={{ fontWeight: "600" }}>đ</p>
-                </div>
-                <div class="d-flex flex-row header">
-                  <p>Phí vận chuyển</p>
-                  <p style={{ fontWeight: "600" }}>Miễn phí</p>
-                </div>
-                <div class="d-flex flex-row header">
-                  <p style={{ marginBottom: "0px" }}>Thành tiền</p>
-                  <p
-                    style={{
-                      marginBottom: "0px",
-                      color: "#FF0000",
-                      fontSize: "20px",
-                      fontWeight: "700",
-                    }}
-                  >
-                    đ
-                  </p>
-                </div>
-                <div class="d-flex" style={{ justifyContent: "flex-end" }}>
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "700",
-                      color: "#767676",
-                    }}
-                  >
-                    (Đã bao gồm VAT)
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style={{ width: "100%" }}
-                >
-                  Thanh toán
-                </button>
               </div>
             </div>
           </div>
