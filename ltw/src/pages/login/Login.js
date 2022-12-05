@@ -20,7 +20,10 @@ export default function Login() {
         password: password,
       })
       .then((res) => {
-        if (res.data) {
+        if (
+          res.data !== "Password is incorrect" &&
+          res.data !== "User not found"
+        ) {
           let username = sessionStorage.getItem("username");
           if (username === null) {
             sessionStorage.setItem("username", res.data.username);
@@ -28,7 +31,6 @@ export default function Login() {
             navigate("/");
           }
         } else {
-          console.log(res.data);
           setErr("Invalid username or password");
         }
       })
