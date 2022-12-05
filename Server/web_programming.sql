@@ -150,7 +150,7 @@ CREATE TABLE `ordered` (
   `method` int(1) NOT NULL,
   `notice` text COLLATE utf8_unicode_ci NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
-  `sdt` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` text COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
   `time` text COLLATE utf8_unicode_ci NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -159,7 +159,7 @@ CREATE TABLE `ordered` (
 -- Dumping data for table `ordered`
 --
 
-INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantities`, `total_cash`, `method`, `notice`, `name`, `sdt`, `address`, `time`) VALUES
+INSERT INTO `ordered` (`id`, `user_id`, `id_products`, `quantities`, `total_cash`, `method`, `notice`, `name`, `phone_number`, `address`, `time`) VALUES
 (3, 3, '16,3,11,1', '1,1,1,1', 83570002, 0, '', '', '', '', '2022-12-04 17:00:12');
 
 -- --------------------------------------------------------

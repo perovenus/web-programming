@@ -50,7 +50,11 @@
 
         public function delOrder($username, $productID){
            
-            
+        }
+
+        public function getAllOrder() {
+            $sql = "SELECT * FROM ordered";
+            $result = $this->orderstable->query($sql);
         }
     }
 ?>

@@ -20,6 +20,7 @@ import EditProductDetail from "./pages/edit-product/EditProductDetail";
 import EditNewsDetail from "./pages/edit-news/EditNewsDetail";
 import Payment from "./pages/payment/Payment";
 import ManageOrders from "./pages/manage-orders/ManageOrders";
+import OrderDetail from "./pages/order-detail/OrderDetail";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -57,7 +58,10 @@ function App() {
         <Route path="edit-product-detail" element={<EditProductDetail />} />
         <Route path="edit-news-detail" element={<EditNewsDetail />} />
         <Route path="checkout" element={<Payment />} />
-        <Route path="manage-orders" element={<ManageOrders />} />
+        <Route path="manage-orders">
+          <Route index element={<ManageOrders />} />
+          <Route path="*" element={<OrderDetail />} />
+        </Route>
       </Routes>
     </Layout>
   );
