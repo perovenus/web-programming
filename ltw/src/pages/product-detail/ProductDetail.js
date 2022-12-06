@@ -39,19 +39,19 @@ export default function ProductDetail() {
       idx: "0",
       userName: "Hưng Lê",
       role: "user",
-      comment: "Nhìn cũng được",
+      comment: "Nhìn đẹp quá",
       replyList: [
         {
           idx: "0",
           userName: "Hưng Lê",
-          role: "user",
-          comment: "Nhìn cũng được",
+          role: "admin",
+          comment: "Đẹp thì mua đi bạn",
         },
         {
           idx: "1",
           userName: "Hưng Lê",
-          role: "admin",
-          comment: "Vậy được rồi m còn đòi gì nữa",
+          role: "user",
+          comment: "Nhưng mà không có tiền :(",
         },
       ],
     },
@@ -435,6 +435,7 @@ export default function ProductDetail() {
                           userName={comment.userName}
                           comment={comment.comment}
                           replyList={comment.replyList}
+                          role={comment.role}
                         />
                       );
                     })}

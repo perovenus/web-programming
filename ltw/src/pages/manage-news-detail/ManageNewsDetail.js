@@ -60,21 +60,23 @@ export default function ManageNewsDetail() {
     "idx": "0",
     "userName": "Hưng Lê",
     "role": "user",
-    "comment": "Nhìn cũng được",
+    "comment": "Hay ghê ta",
     "replyList": [
-      {
-        "idx": "0",
-        "userName": "Hưng Lê",
-        "role": "user",
-        "comment": "Nhìn cũng được"
-      },
       {
         "idx": "1",
         "userName": "Hưng Lê",
         "role": "admin",
-        "comment": "Vậy được rồi m còn đòi gì nữa"
+        "comment": "Hay chứ bạn"
       }]
-  }]
+  },
+  {
+    "idx": "0",
+    "userName": "Lê Hưng",
+    "role": "user",
+    "comment": "Đỉnh zay",
+    "replyList": []
+  }
+  ]
   return (
     <>
       <div class="body">

@@ -2,7 +2,7 @@ import React from 'react'
 import './commentblock.css'
 import { useRef } from 'react';
 
-export default function CommentBlock({ userName, comment, replyList }) {
+export default function CommentBlock({ userName, comment, replyList, role }) {
 
 
   return (
@@ -13,7 +13,19 @@ export default function CommentBlock({ userName, comment, replyList }) {
             src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
             height="40" />
           <div class="flex-column" style={{ width: '100%' }}>
-            <strong>{userName}</strong>
+            <div class="d-flex">
+              <strong>{userName}</strong>
+              {
+                role == "admin" ?
+                  <text
+                    class="ms-2"
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: '500',
+                      color: '#767676'
+                    }}>Quản trị viên</text> : <></>
+              }
+            </div>
             <p style={{ margin: '0' }}>{comment}</p>
             <p class="reply-btn" data-bs-toggle="collapse" href="#collapseExample" role="button" onClick={{}}>Trả lời</p>
             <div class="collapse" id="collapseExample">
@@ -42,7 +54,19 @@ export default function CommentBlock({ userName, comment, replyList }) {
                           src={require('../../assets/images/cute_vl.jpg')} alt="avatar" width="40"
                           height="40" />
                         <div class="flex-column" style={{ width: '100%' }}>
-                          <strong>{reply.userName}</strong>
+                          <div class="d-flex flex-row align-items-center">
+                            <strong>{reply.userName}</strong>
+                            {
+                              reply.role == "admin" ?
+                                <text
+                                  class="ms-2"
+                                  style={{
+                                    fontSize: '12px',
+                                    fontWeight: '500',
+                                    color: '#767676'
+                                  }}>Quản trị viên</text> : <></>
+                            }
+                          </div>
                           <p style={{ margin: '0' }}>{reply.comment}</p>
                           <p class="reply-btn" data-bs-toggle="collapse" href={href} role="button" onClick={{}}>Trả lời</p>
                           <div class="collapse" id={collapseId}>

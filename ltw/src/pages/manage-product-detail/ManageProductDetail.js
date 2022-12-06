@@ -64,25 +64,28 @@ export default function ManageProductDetail() {
       })
   }
 
-  const commentList = [{
-    "idx": "0",
-    "userName": "Hưng Lê",
-    "role": "user",
-    "comment": "Nhìn cũng được",
-    "replyList": [
-      {
-        "idx": "0",
-        "userName": "Hưng Lê",
-        "role": "user",
-        "comment": "Nhìn cũng được"
-      },
-      {
-        "idx": "1",
-        "userName": "Hưng Lê",
-        "role": "admin",
-        "comment": "Vậy được rồi m còn đòi gì nữa"
-      }]
-  }]
+  const commentList = [
+    {
+      idx: "0",
+      userName: "Hưng Lê",
+      role: "user",
+      comment: "Nhìn đẹp quá",
+      replyList: [
+        {
+          idx: "0",
+          userName: "Hưng Lê",
+          role: "admin",
+          comment: "Đẹp thì mua đi bạn",
+        },
+        {
+          idx: "1",
+          userName: "Hưng Lê",
+          role: "user",
+          comment: "Nhưng mà không có tiền :(",
+        },
+      ],
+    },
+  ];
 
   return (
     <>

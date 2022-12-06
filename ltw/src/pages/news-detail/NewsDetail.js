@@ -29,21 +29,23 @@ export default function NewsDetail() {
     "idx": "0",
     "userName": "Hưng Lê",
     "role": "user",
-    "comment": "Nhìn cũng được",
+    "comment": "Hay ghê ta",
     "replyList": [
-      {
-        "idx": "0",
-        "userName": "Hưng Lê",
-        "role": "user",
-        "comment": "Nhìn cũng được"
-      },
       {
         "idx": "1",
         "userName": "Hưng Lê",
         "role": "admin",
-        "comment": "Vậy được rồi m còn đòi gì nữa"
+        "comment": "Hay chứ bạn"
       }]
-  }]
+  },
+  {
+    "idx": "0",
+    "userName": "Lê Hưng",
+    "role": "user",
+    "comment": "Đỉnh zay",
+    "replyList": []
+  }
+  ]
   return (
     <div class="body">
       <div class="container">
@@ -55,8 +57,8 @@ export default function NewsDetail() {
                   <>
                     <h2 class="mb-3">{news[0]["title"]}</h2>
                     <p class="time-up mb-4">{news[0]["time_up"]}</p>
-                    <img class="mb-4" src={news[0]["image"]}/>
-                    <p style={{fontSize: '18px'}}>{news[0]["content"]}</p>
+                    <img class="mb-4" src={news[0]["image"]} />
+                    <p style={{ fontSize: '18px' }}>{news[0]["content"]}</p>
                   </>
                   : <></>
               }

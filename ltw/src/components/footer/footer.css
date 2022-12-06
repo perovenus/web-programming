@@ -1,6 +1,5 @@
-#footer {
+/* #footer {
   background-color: #e9edf2;
-  /* disable dot in li */
 }
 #footer ul li {
   list-style: none;
@@ -32,4 +31,52 @@
 #footer-bottom a {
   color: black;
   text-decoration: none;
+} */
+
+
+/* .bg {
+    background-color: rgba(128, 128, 128, 0.753);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+@media (max-width: 998px) {
+    .col-lg-5 {
+        width: 50%;
+      }
+    .col-lg-4 {
+        width: 50%;
+      }
+      .col-lg-3 {
+        width: 50%;
+      }
+    }
+ */
+
+.footer {
+  background: rgb(24, 112, 194);
+  color: white;
+  padding: 40px 20px;
+}
+
+.about-company i {
+  font-size: 25px;
+}
+
+.about-company a {
+  color: white;
+  transition: color .2s;
+
+}
+
+.about-company a:hover {
+  color: #4180CB
+}
+
+.location i {
+  font-size: 18px;
+}
+
+.copyright p {
+  border-top: 1px solid rgba(255, 255, 255, .1);
 }
